@@ -14,6 +14,7 @@ export default {
       },
       fontFamily: {
         satoshi: ["var(--font-satoshi)", "sans-serif"],
+        integralCf: ["var(--font-integralCf)", "sans-serif"],
       },
     },
   },

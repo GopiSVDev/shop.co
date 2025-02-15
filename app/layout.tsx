@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
+import NotificationBar from "@/components/NotificationBar";
+import Navbar from "@/components/layout/Navbar";
 
 const satoshi = localFont({
   src: "../public/fonts/Satoshi-Variable.ttf",
   variable: "--font-satoshi",
+});
+
+const integralCf = localFont({
+  src: "../public/fonts/Integral-cf.otf",
+  variable: "--font-integralCf",
 });
 
 export const metadata: Metadata = {
@@ -19,10 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${satoshi.variable} w-full max-w-[1440px] mx-auto px-4`}
-      >
-        {children}
+      <body className={`${satoshi.variable} ${integralCf.variable}`}>
+        <NotificationBar />
+        <Navbar />
+        <main>{children}</main>
       </body>
     </html>
   );
