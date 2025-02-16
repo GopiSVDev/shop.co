@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
 import NotificationBar from "@/components/NotificationBar";
-import Navbar from "@/components/layout/Navbar";
+import Navbar from "@/components/layout/Navbar/Navbar";
 
 const satoshi = localFont({
   src: "../public/fonts/Satoshi-Variable.ttf",
@@ -29,6 +29,7 @@ export default function RootLayout({
       <body className={`${satoshi.variable} ${integralCf.variable}`}>
         <NotificationBar />
         <Navbar />
+
         <main>{children}</main>
       </body>
     </html>
