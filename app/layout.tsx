@@ -29,9 +29,8 @@ export default function RootLayout({
       <body className={`${satoshi.variable} ${integralCf.variable}`}>
         <NotificationBar />
         <Navbar />
-        <div className="container">
-          <main>{children}</main>
-        </div>
+
+        <main>{children}</main>
       </body>
     </html>
   );

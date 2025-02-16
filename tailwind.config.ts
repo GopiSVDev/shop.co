@@ -63,6 +63,9 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      backgroundImage: {
+        hero: "url('/images/hero.png')",
+      },
     },
   },
   plugins: [tailwindcssAnimate],

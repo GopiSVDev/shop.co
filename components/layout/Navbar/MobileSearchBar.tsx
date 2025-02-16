@@ -10,7 +10,7 @@ const MobileSearchBar = ({
   const [searchValue, setSearchValue] = useState("");
 
   return (
-    <div className="flex items-center bg-offWhite h-8 px-2 py-1 rounded-[64px] w-[180px]">
+    <div className="lg:hidden flex items-center bg-offWhite h-8 px-2 py-1 rounded-[64px] w-[180px]">
       <Input
         className="font-satoshi text-[10px] px-2 h-5"
         placeholder="Search for products..."
