@@ -11,7 +11,7 @@ const Navbar = () => {
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
 
   return (
-    <header className="w-full">
+    <header className="w-full bg-white sticky top-0 shadow-md">
       <div className="container flex justify-between items-center px-4 py-5 md:px-10 lg:px-16 lg:gap-10">
         {/* Left Section */}
         <nav className="flex items-center gap-4">
