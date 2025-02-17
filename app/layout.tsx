@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
-import NotificationBar from "@/components/NotificationBar";
+import NotificationBar from "@/components/layout/NotificationBar/NotificationBar";
 import Navbar from "@/components/layout/Navbar/Navbar";
 
 const satoshi = localFont({
@@ -26,7 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${satoshi.variable} ${integralCf.variable}`}>
+      <body
+        className={`${satoshi.variable} ${integralCf.variable} min-h-screen overflow-x-hidden`}
+      >
         <NotificationBar />
         <Navbar />
 

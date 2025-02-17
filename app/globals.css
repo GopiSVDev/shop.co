@@ -8,11 +8,11 @@ body {
 }
 
 .container {
-  @apply w-full max-w-[1440px] mx-auto px-4;
+  @apply w-full max-w-[1440px] mx-auto;
 }
 
 .divider {
-  @apply h-[64px] border border-[hsla(0,0%,0%,0.1)];
+  @apply h-fit w-[1px] border border-[hsla(0,0%,0%,0.1)];
 }
 
 @layer base {
