@@ -2,6 +2,7 @@ import HomePage from "@/components/layout/Home/HomePage";
 import Sponsors from "@/components/layout/Sponsors/Sponsors";
 import NewArrivals from "@/components/layout/NewArrivals/NewArrivals";
 import TopSelling from "@/components/layout/TopSelling/TopSelling";
+import BrowseByStyle from "@/components/layout/BrowseByStyle/BrowseByStyle";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <NewArrivals />
       <div className="container w-full h-[1px] border border-[hsla(0,0%,0%,0.1)]"></div>
       <TopSelling />
+      <BrowseByStyle />
     </>
   );
 }
