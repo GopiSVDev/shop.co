@@ -18,7 +18,7 @@ const ProductCard = ({ item }: { item: unknown }) => {
         width={200}
       />
       <CardContent className="pt-2">
-        <h2 className="text-[16px] font-bold">{title}</h2>
+        <h2 className="text-[20px] font-bold">{title}</h2>
 
         {/* Rating */}
 
