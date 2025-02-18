@@ -16,7 +16,7 @@ const HomePage = () => {
       {/* Hero Image for mobile */}
       <Image
         className="md:hidden block mx-auto h-auto w-full"
-        src="/images/hero-mobile.png"
+        src="/images/hero-mobile.webp"
         width={390}
         height={448}
         alt="hero image mobile"
