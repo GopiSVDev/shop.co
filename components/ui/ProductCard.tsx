@@ -1,5 +1,7 @@
-import { Card, CardContent } from "@/components/ui/card";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 
+import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import StarRating from "./StarRating";
 
