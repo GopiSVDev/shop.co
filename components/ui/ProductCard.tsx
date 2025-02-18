@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import StarRating from "./StarRating";
 
-const ProductCard = ({ item }: { item: Object }) => {
+const ProductCard = ({ item }: { item: object }) => {
   const { image, title, rating, amount, discountPercent } = item;
 
   return (
@@ -11,7 +11,7 @@ const ProductCard = ({ item }: { item: Object }) => {
       <Image
         src={image}
         alt={`image of ${title}`}
-        className="w-full h-auto rounded-2xl object-cover"
+        className="w-full lg:h-[350px] rounded-2xl object-cover"
         height={200}
         width={200}
       />

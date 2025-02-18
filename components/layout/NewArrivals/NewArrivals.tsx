@@ -1,12 +1,6 @@
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-} from "@/components/ui/carousel";
-import ProductCard from "./ProductCard";
 import { Button } from "@/components/ui/button";
+import MobileCarousel from "../../ui/MobileCarousel";
+import CardGrid from "../../ui/CardGrid";
 import { newArrivals } from "@/lib/data";
 
 const NewArrivals = () => {
@@ -19,23 +13,9 @@ const NewArrivals = () => {
         NEW ARRIVALS
       </h2>
 
-      <Carousel className="max-w-[320px] md:hidden">
-        <CarouselContent>
-          {newArrivals.map((item, index) => {
-            return (
-              <CarouselItem key={index}>
-                <ProductCard item={item} />
-              </CarouselItem>
-            );
-          })}
-        </CarouselContent>
-        <div className="hidden sm:flex">
-          <CarouselPrevious />
-          <CarouselNext />
-        </div>
-      </Carousel>
-
-      <Button className="my-6 w-full max-w-[220px]">View All</Button>
+      <MobileCarousel data={newArrivals} />
+      <CardGrid data={newArrivals} />
+      <Button className="my-8 w-full max-w-[220px]">View All</Button>
     </section>
   );
 };
