@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import StarRating from "./StarRating";
 
-const ProductCard = ({ item }: { item: object }) => {
+const ProductCard = ({ item }: { item: unknown }) => {
   const { image, title, rating, amount, discountPercent } = item;
 
   return (

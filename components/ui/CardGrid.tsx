@@ -1,6 +1,6 @@
 import ProductCard from "./ProductCard";
 
-const CardGrid = ({ data }: { data: Array<any> }) => {
+const CardGrid = ({ data }: { data: unknown }) => {
   return (
     <div className="hidden w-full md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       {data.map((item: object, index: number) => {
