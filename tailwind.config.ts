@@ -65,10 +65,6 @@ export default {
       },
       backgroundImage: {
         hero: "url('/images/hero.webp')",
-        casual: "url('/images/casual.webp')",
-        formal: "url('/images/formal.webp')",
-        party: "url('/images/party.webp')",
-        gym: "url('/images/gym.webp')",
       },
     },
   },

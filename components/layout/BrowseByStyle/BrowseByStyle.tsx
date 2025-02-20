@@ -1,7 +1,12 @@
-import React from "react";
+import CategoryCard from "@/components/ui/CategoryCard";
 
 const BrowseByStyle = () => {
-  const categories = ["Casual", "Formal", "Party", "Gym"];
+  const categories = [
+    { name: "Casual", image: "/images/casual.webp" },
+    { name: "Formal", image: "/images/formal.webp" },
+    { name: "Party", image: "/images/party.webp" },
+    { name: "Gym", image: "/images/gym.webp" },
+  ];
 
   const getColSpan = (index: number) => {
     if (index === 1 || index === 2) return "lg:col-span-2"; // First and fourth divs take 2 columns
@@ -17,15 +22,8 @@ const BrowseByStyle = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {categories.map((category, index) => {
           return (
-            <div
-              key={category}
-              className={`bg-${category.toLowerCase()} bg-no-repeat bg-cover h-[200px] rounded-[20px] ${getColSpan(
-                index
-              )}`}
-            >
-              <p className="mt-4 ml-6 text-[clamp(1.5rem,1.2857142857142856rem+1.0714285714285714vw,2.25rem)] font-bold font-satoshi">
-                {category}
-              </p>
+            <div key={category.name} className={`${getColSpan(index)}`}>
+              <CategoryCard category={category} />
             </div>
           );
         })}
