@@ -1,7 +1,11 @@
 import React from "react";
 
-const CategoryCard = ({ category }) => {
-  const { name, image } = category;
+const CategoryCard = ({
+  category,
+}: {
+  category: { name: string; image: string };
+}) => {
+  const { name, image }: { name: string; image: string } = category;
   return (
     <div
       className="bg-no-repeat bg-cover h-[200px] rounded-[20px]"
