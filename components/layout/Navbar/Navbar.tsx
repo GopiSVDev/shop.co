@@ -5,10 +5,24 @@ import MobileNav from "./MobileNav";
 import DesktopNav from "./DesktopNav";
 import SearchBar from "./SearchBar";
 import NavActions from "./NavActions";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 1024 && isMobileSearchOpen) {
+        setIsMobileSearchOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  });
 
   return (
     <header className="w-full bg-white sticky top-0 shadow-md">
@@ -16,12 +30,14 @@ const Navbar = () => {
         {/* Left Section */}
         <nav className="flex items-center gap-4">
           <MobileNav />
-          <Link
-            href="/"
-            className="font-integralCf text-2xl font-bold md:text-3xl"
-          >
-            SHOP.CO
-          </Link>
+          {!isMobileSearchOpen && (
+            <Link
+              href="/"
+              className="font-integralCf text-2xl font-bold md:text-3xl"
+            >
+              SHOP.CO
+            </Link>
+          )}
         </nav>
 
         {/* Center Section (Desktop Navigation) */}
