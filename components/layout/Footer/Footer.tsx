@@ -4,7 +4,7 @@ import { Mail } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-offWhite">
+    <footer className="bg-offWhite mt-[clamp(10.625rem,11.830357142857142rem+-1.3392857142857142vw,11.5625rem)]">
       <div className="container font-satoshi px-[clamp(1rem,-0.5rem+7.5vw,6.25rem)] -translate-y-[50%]">
         <div className="bg-black py-7 px-[clamp(1.5rem,0.7857142857142858rem+3.571428571428571vw,4rem)] flex flex-col md:flex-row gap-5 justify-around items-center rounded-[20px]">
           <p className="text-[32px] font-bold text-white font-integralCf">
