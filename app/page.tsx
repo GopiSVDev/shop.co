@@ -4,6 +4,7 @@ import NewArrivals from "@/components/layout/NewArrivals/NewArrivals";
 import TopSelling from "@/components/layout/TopSelling/TopSelling";
 import BrowseByStyle from "@/components/layout/BrowseByStyle/BrowseByStyle";
 import Testimonials from "@/components/layout/Testimonials/Testimonials";
+import Footer from "@/components/layout/Footer/Footer";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <TopSelling />
       <BrowseByStyle />
       <Testimonials />
+      {/* <Footer /> */}
     </>
   );
 }
