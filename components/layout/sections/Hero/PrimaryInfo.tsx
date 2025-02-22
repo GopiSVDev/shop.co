@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const PrimaryInfo = () => {
   return (
@@ -13,9 +14,11 @@ const PrimaryInfo = () => {
         designed to bring out your individuality and cater to your sense of
         style.
       </p>
-      <Button className="font-satoshi font-medium w-full md:max-w-[210px]">
-        Shop Now
-      </Button>
+      <Link href="/shop">
+        <Button className="font-satoshi font-medium w-full md:max-w-[210px]">
+          Shop Now
+        </Button>
+      </Link>
     </div>
   );
 };

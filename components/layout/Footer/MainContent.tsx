@@ -120,21 +120,41 @@ const MainContent = () => {
         <div className="flex justify-between items-center h-fit">
           {/* Replace these placeholders with your actual payment icons */}
 
-          <Image src="/svg/visa.png" alt="Visa" width={47} height={30} />
+          <Image
+            src="/svg/visa.png"
+            alt="Visa"
+            width={47}
+            height={30}
+            style={{ width: "auto", height: "50px" }}
+          />
           <Image
             src="/svg/mastercard.png"
             alt="Mastercard"
             width={47}
             height={30}
+            style={{ width: "auto", height: "50px" }}
           />
-          <Image src="/svg/paypal.png" alt="PayPal" width={47} height={30} />
+          <Image
+            src="/svg/paypal.png"
+            alt="PayPal"
+            width={47}
+            height={30}
+            style={{ width: "auto", height: "50px" }}
+          />
           <Image
             src="/svg/applepay.png"
             alt="ApplePay"
             width={47}
             height={30}
+            style={{ width: "auto", height: "50px" }}
           />
-          <Image src="/svg/gpay.png" alt="GPay" width={47} height={30} />
+          <Image
+            src="/svg/gpay.png"
+            alt="GPay"
+            width={47}
+            height={30}
+            style={{ width: "auto", height: "50px" }}
+          />
         </div>
       </div>
     </div>

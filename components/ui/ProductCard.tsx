@@ -1,19 +1,16 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import StarRating from "./StarRating";
 
 const ProductCard = ({ item }: { item: unknown }) => {
-  const { image, title, rating, amount, discountPercent } = item;
+  const { images, title, rating, price, discountPercentage } = item;
 
   return (
     <Card className="w-full rounded-2xl overflow-hidden shadow-lg font-satoshi">
       <Image
-        src={image}
+        src={images[0]}
         alt={`image of ${title}`}
-        className="w-full lg:h-[350px] rounded-2xl object-cover"
+        className="lg:h-[350px] rounded-2xl object-cover"
         height={200}
         width={200}
       />
@@ -27,16 +24,18 @@ const ProductCard = ({ item }: { item: unknown }) => {
         {/* Pricing */}
         <div className="flex gap-2 items-center">
           <span className="text-[20px] font-bold">{`$${
-            discountPercent ? amount - (amount * discountPercent) / 100 : amount
+            discountPercentage
+              ? price - (price * discountPercentage) / 100
+              : price
           }`}</span>
 
-          {discountPercent ? (
+          {discountPercentage ? (
             <>
               <span className="text-[20px] font-bold text-[hsla(0,0%,0%,0.4)] line-through">
-                {amount}
+                {Math.floor(parseInt(price))}
               </span>
               <span className="text-[10px] text-[hsla(0,100%,60%,1)] p-[6px] bg-[hsla(0,100%,60%,0.1)] rounded-[62px] font-medium">
-                {`-${discountPercent}%`}
+                {`-${discountPercentage}%`}
               </span>
             </>
           ) : (
