@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
-import NotificationBar from "@/components/layout/NotificationBar/NotificationBar";
+import NotificationBar from "@/components/layout/sections/NotificationBar";
 import Navbar from "@/components/layout/Navbar/Navbar";
+import Footer from "@/components/layout/Footer/Footer";
 
 const satoshi = localFont({
   src: "../public/fonts/Satoshi-Variable.ttf",
@@ -33,6 +34,7 @@ export default function RootLayout({
         <Navbar />
 
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

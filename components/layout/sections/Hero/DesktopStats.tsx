@@ -1,4 +1,4 @@
-import Stats from "@/components/layout/Home/Stats";
+import Stats from "./Stats";
 
 const DesktopStats = () => {
   return (

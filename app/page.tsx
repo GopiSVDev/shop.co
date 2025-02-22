@@ -1,22 +1,19 @@
-import HomePage from "@/components/layout/Home/HomePage";
-import Sponsors from "@/components/layout/Sponsors/Sponsors";
-import NewArrivals from "@/components/layout/NewArrivals/NewArrivals";
-import TopSelling from "@/components/layout/TopSelling/TopSelling";
-import BrowseByStyle from "@/components/layout/BrowseByStyle/BrowseByStyle";
-import Testimonials from "@/components/layout/Testimonials/Testimonials";
-import Footer from "@/components/layout/Footer/Footer";
+import Hero from "@/components/layout/sections/Hero/Hero";
+import Sponsors from "@/components/layout/sections/Sponsors";
+import NewArrivals from "@/components/layout/sections/NewArrivals";
+import TopSelling from "@/components/layout/sections/TopSelling";
+import BrowseByStyle from "@/components/layout/sections/BrowseByStyle";
+import Testimonials from "@/components/layout/sections/Testimonials";
 
 export default function Home() {
   return (
     <>
-      <HomePage />
+      <Hero />
       <Sponsors />
       <NewArrivals />
-      <div className="container w-full h-[1px] border border-[hsla(0,0%,0%,0.1)]"></div>
       <TopSelling />
       <BrowseByStyle />
       <Testimonials />
-      <Footer />
     </>
   );
 }

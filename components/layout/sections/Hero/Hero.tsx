@@ -1,9 +1,9 @@
 import Image from "next/image";
-import DesktopStats from "@/components/layout/Home/DesktopStats";
-import MobileStats from "@/components/layout/Home/MobileStats";
-import PrimaryInfo from "@/components/layout/Home/PrimaryInfo";
+import DesktopStats from "./DesktopStats";
+import MobileStats from "./MobileStats";
+import PrimaryInfo from "./PrimaryInfo";
 
-const HomePage = () => {
+const Hero = () => {
   return (
     <section className="w-full bg-offWhite">
       <div className="container lg:bg-hero lg:bg-cover lg:bg-no-repeat lg:bg-right lg:h-[663px]">
@@ -25,4 +25,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Hero;
