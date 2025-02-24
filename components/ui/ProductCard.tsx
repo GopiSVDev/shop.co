@@ -1,25 +1,21 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import StarRating from "./StarRating";
-import { Product } from "@/types/api";
+import { Product } from "@/store/useProductStore";
 
 const ProductCard = ({ product }: { product: Product }) => {
-  const { images, title, rating, price, discountPercentage } = product;
+  const { thumbnail, title, rating, price, discountPercentage } = product;
 
   return (
     <Card className="max-w-[350px] rounded-2xl overflow-hidden shadow-lg font-satoshi">
-      {images.length > 0 && images[0] ? (
-        <Image
-          src={images[0]}
-          alt={`image of ${title}`}
-          className="lg:h-[350px] rounded-2xl object-cover w-[350px]"
-          height={200}
-          width={200}
-          unoptimized
-        />
-      ) : (
-        <p>No image available</p>
-      )}
+      <Image
+        src={thumbnail}
+        alt={`image of ${title}`}
+        className="lg:h-[350px] rounded-2xl object-cover w-[350px]"
+        height={200}
+        width={200}
+        unoptimized
+      />
 
       <CardContent className="pt-2">
         <h2 className="text-[20px] font-bold">{title}</h2>

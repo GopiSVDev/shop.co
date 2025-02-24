@@ -1,65 +1,3 @@
-const newArrivals = [
-  {
-    images: ["/images/tshirt.webp"],
-    title: "T-shirt with Tape Details",
-    rating: 4,
-    price: 120,
-    discountPercentage: 0,
-  },
-  {
-    images: ["/images/jeansPant.webp"],
-    title: "Skinny Fit Jeans",
-    rating: 3.5,
-    price: 260,
-    discountPercentage: 20,
-  },
-  {
-    images: ["/images/checkedShirt.webp"],
-    title: "Checkered Shirt",
-    rating: 4.5,
-    price: 180,
-    discountPercentage: 0,
-  },
-  {
-    images: ["/images/tshirt2.webp"],
-    title: "Sleeve Striped T-shirt",
-    rating: 4.5,
-    price: 160,
-    discountPercentage: 30,
-  },
-];
-
-const topSelling = [
-  {
-    images: ["/images/stripedShirt.webp"],
-    title: "Vertical Striped Shirt",
-    rating: 5,
-    price: 232,
-    discountPercentage: 20,
-  },
-  {
-    images: ["/images/graphicTshirt.webp"],
-    title: "Courage Graphic T-shirt",
-    rating: 4,
-    price: 145,
-    discountPercentage: 0,
-  },
-  {
-    images: ["/images/shorts.webp"],
-    title: "Loose Fit Bermuda Shorts",
-    rating: 3,
-    price: 80,
-    discountPercentage: 0,
-  },
-  {
-    images: ["/images/skinnyJeans.webp"],
-    title: "Faded Skinny Jeans",
-    rating: 4.5,
-    price: 210,
-    discountPercentage: 0,
-  },
-];
-
 const testimonials = [
   {
     rating: 5,
@@ -81,4 +19,4 @@ const testimonials = [
   },
 ];
 
-export { newArrivals, topSelling, testimonials };
+export { testimonials };

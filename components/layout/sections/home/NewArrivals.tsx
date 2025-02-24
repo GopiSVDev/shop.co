@@ -1,9 +1,17 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
-import MobileCarousel from "../../ui/MobileCarousel";
-import CardGrid from "../../ui/CardGrid";
-import { newArrivals } from "@/lib/data";
+import MobileCarousel from "../../../ui/MobileCarousel";
+import CardGrid from "../../../ui/CardGrid";
+import { useProductStore } from "@/store/useProductStore";
 
 const NewArrivals = () => {
+  const products = useProductStore((state) => state.products);
+
+  const randomProducts = products
+    .sort(() => Math.random() - 0.5) // Quick shuffle
+    .slice(0, 4);
+
   return (
     <>
       <section
@@ -14,8 +22,8 @@ const NewArrivals = () => {
           NEW ARRIVALS
         </h2>
 
-        <MobileCarousel data={newArrivals} />
-        <CardGrid products={newArrivals} />
+        <MobileCarousel data={randomProducts} />
+        <CardGrid products={randomProducts} />
         <Button className="my-8 w-full max-w-[220px]">View All</Button>
       </section>
       {/* Divider Line */}
