@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
-import NotificationBar from "@/components/layout/sections/NotificationBar";
-import Navbar from "@/components/layout/Navbar/Navbar";
+import NotificationBar from "@/components/layout/sections/home/NotificationBar";
+import Navbar from "@/components/layout/navbar/Navbar";
 import Footer from "@/components/layout/Footer/Footer";
+import FetchProducts from "@/components/FetchProducts";
 
 const satoshi = localFont({
   src: "../public/fonts/Satoshi-Variable.ttf",
@@ -27,6 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <FetchProducts />
       <body
         className={`${satoshi.variable} ${integralCf.variable} min-h-screen overflow-x-hidden`}
       >

@@ -28,13 +28,13 @@ const DesktopNav = () => {
             </DropdownMenu>
           </li>
           <li>
-            <Link href="/">On Sale</Link>
+            <Link href="/shop">On Sale</Link>
           </li>
           <li>
-            <Link href="/">New Arrivals</Link>
+            <Link href="/shop">New Arrivals</Link>
           </li>
           <li>
-            <Link href="/">Brands</Link>
+            <Link href="/shop">Brands</Link>
           </li>
         </ul>
       </nav>

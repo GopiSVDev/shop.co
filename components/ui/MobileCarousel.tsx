@@ -6,7 +6,7 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel";
 import ProductCard from "./ProductCard";
-import { Product } from "@/types/api";
+import { Product } from "@/store/useProductStore";
 
 const MobileCarousel = ({ data }: { data: Product[] }) => {
   return (
