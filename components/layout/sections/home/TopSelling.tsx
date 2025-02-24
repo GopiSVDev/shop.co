@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import MobileCarousel from "../../../ui/MobileCarousel";
 import CardGrid from "../../../ui/CardGrid";
 import { useProductStore } from "@/store/useProductStore";
+import Link from "next/link";
 
 const TopSelling = () => {
   const products = useProductStore((state) => state.products);
@@ -23,7 +24,9 @@ const TopSelling = () => {
 
       <MobileCarousel data={randomProducts} />
       <CardGrid products={randomProducts} />
-      <Button className="my-8 w-full max-w-[220px]">View All</Button>
+      <Link href="/shop">
+        <Button className="my-8 w-full max-w-[220px]">View All</Button>
+      </Link>
     </section>
   );
 };

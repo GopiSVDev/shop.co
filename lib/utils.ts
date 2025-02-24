@@ -1,7 +1,7 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { getAllProducts } from "./api";
-import { Product } from "@/types/api";
+import { Product } from "@/store/useProductStore";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -14,15 +14,16 @@ export function formatCategoryName(category: string): string {
     .join(" "); // Join with a space
 }
 
-export async function allCategories(): Promise<string[]> {
-  const result: string[] = [];
-
+export async function allCategories(): Promise<
+  { title: string; count: number }[]
+> {
   const products = await getAllProducts();
-  products.map((item: Product) => {
-    if (!result.includes(item.category)) {
-      result.push(item.category);
-    }
+
+  const categoryMap = new Map<string, number>();
+
+  products.forEach((item: Product) => {
+    categoryMap.set(item.category, (categoryMap.get(item.category) || 0) + 1);
   });
 
-  return result;
+  return Array.from(categoryMap, ([title, count]) => ({ title, count }));
 }

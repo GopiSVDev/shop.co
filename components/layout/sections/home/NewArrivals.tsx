@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import MobileCarousel from "../../../ui/MobileCarousel";
 import CardGrid from "../../../ui/CardGrid";
 import { useProductStore } from "@/store/useProductStore";
+import Link from "next/link";
 
 const NewArrivals = () => {
   const products = useProductStore((state) => state.products);
@@ -24,7 +25,9 @@ const NewArrivals = () => {
 
         <MobileCarousel data={randomProducts} />
         <CardGrid products={randomProducts} />
-        <Button className="my-8 w-full max-w-[220px]">View All</Button>
+        <Link href="/shop">
+          <Button className="my-8 w-full max-w-[220px]">View All</Button>
+        </Link>
       </section>
       {/* Divider Line */}
       <div className="container w-full h-[1px] border border-[hsla(0,0%,0%,0.1)]"></div>
