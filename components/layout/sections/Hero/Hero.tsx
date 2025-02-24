@@ -20,6 +20,7 @@ const Hero = () => {
         width={390}
         height={448}
         alt="hero image mobile"
+        unoptimized
       />
     </section>
   );

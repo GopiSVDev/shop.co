@@ -6,15 +6,16 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel";
 import ProductCard from "./ProductCard";
+import { Product } from "@/types/api";
 
-const MobileCarousel = ({ data }: { data: Array<object> }) => {
+const MobileCarousel = ({ data }: { data: Product[] }) => {
   return (
     <Carousel className="max-w-[320px] md:hidden">
       <CarouselContent>
-        {data.map((item, index) => {
+        {data.map((product, index) => {
           return (
             <CarouselItem key={index}>
-              <ProductCard item={item} />
+              <ProductCard product={product} />
             </CarouselItem>
           );
         })}

@@ -9,11 +9,38 @@ const Sponsors = () => {
           alt="versace"
           width={166}
           height={33}
+          style={{ width: "auto", height: "auto" }}
+          unoptimized
         />
-        <Image src="/images/zara.webp" alt="zara" width={92} height={38} />
-        <Image src="/images/gucci.webp" alt="gucci" width={157} height={36} />
-        <Image src="/images/prada.webp" alt="prada" width={195} height={32} />
-        <Image src="/images/ck.webp" alt="ck" width={208} height={33} />
+        <Image
+          src="/images/zara.webp"
+          alt="zara"
+          width={92}
+          height={38}
+          unoptimized
+        />
+        <Image
+          src="/images/gucci.webp"
+          alt="gucci"
+          width={157}
+          height={36}
+          unoptimized
+        />
+        <Image
+          src="/images/prada.webp"
+          alt="prada"
+          width={195}
+          height={32}
+          unoptimized
+        />
+        <Image
+          src="/images/ck.webp"
+          alt="ck"
+          width={208}
+          height={33}
+          unoptimized
+          style={{ width: "auto", height: "auto" }}
+        />
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ const NewArrivals = () => {
         </h2>
 
         <MobileCarousel data={newArrivals} />
-        <CardGrid data={newArrivals} />
+        <CardGrid products={newArrivals} />
         <Button className="my-8 w-full max-w-[220px]">View All</Button>
       </section>
       {/* Divider Line */}

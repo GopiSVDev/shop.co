@@ -1,3 +1,5 @@
+import { Product } from "@/types/api";
+
 const getAllProducts = async () => {
   const categories = [
     "mens-shirts",
@@ -20,13 +22,15 @@ const getAllProducts = async () => {
     categories.includes(d.category)
   );
 
-  return data.map(({ images, title, rating, price, discountPercentage }) => ({
-    images,
-    title,
-    rating,
-    price,
-    discountPercentage,
-  }));
+  return data.map(
+    ({ images, title, rating, price, discountPercentage }: Product) => ({
+      images,
+      title,
+      rating,
+      price,
+      discountPercentage,
+    })
+  );
 };
 
 export { getAllProducts };

@@ -14,7 +14,7 @@ const TopSelling = () => {
       </h2>
 
       <MobileCarousel data={topSelling} />
-      <CardGrid data={topSelling} />
+      <CardGrid products={topSelling} />
       <Button className="my-8 w-full max-w-[220px]">View All</Button>
     </section>
   );
