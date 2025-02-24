@@ -1,6 +1,7 @@
 import { allCategories } from "@/lib/utils";
 import CategoryFilter from "./CategoryFilter";
 import { SlidersHorizontal } from "lucide-react";
+import { Suspense } from "react";
 
 const DesktopFilterBar = async () => {
   const categories = await allCategories();
@@ -12,8 +13,9 @@ const DesktopFilterBar = async () => {
       </p>
 
       <div className="container w-full h-[1px] border border-[hsla(0,0%,0%,0.1)] my-6"></div>
-
-      <CategoryFilter categories={categories} />
+      <Suspense fallback={<div>Loading....</div>}>
+        <CategoryFilter categories={categories} />
+      </Suspense>
     </div>
   );
 };
