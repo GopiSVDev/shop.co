@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 export default function Breadcrumbs() {
   const pathname = usePathname();
-  const pathSegments = pathname.split("/").filter((segment) => segment); // Remove empty segments
+  const pathSegments = pathname.split("/").filter((segment) => segment);
 
   return (
     <nav className="text-[16px] text-gray-500 py-7">
