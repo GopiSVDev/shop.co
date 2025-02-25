@@ -13,8 +13,11 @@ const DesktopFilterBar = async () => {
       </p>
 
       <div className="container w-full h-[1px] border border-[hsla(0,0%,0%,0.1)] my-6"></div>
+
       <Suspense fallback={<div>Loading....</div>}>
         <CategoryFilter categories={categories} />
+        <div className="container w-full h-[1px] border border-[hsla(0,0%,0%,0.1)] my-6"></div>
+        
       </Suspense>
     </div>
   );
