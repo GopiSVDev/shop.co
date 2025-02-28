@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import DesktopFilterBar from "./DesktopFilterBar";
+import FilterBar from "./FilterBar";
 
 export default function FilterSection() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +12,7 @@ export default function FilterSection() {
     <div className="relative">
       {/* DESKTOP FILTER (Always Visible) */}
       <div className="hidden md:block">
-        <DesktopFilterBar />
+        <FilterBar />
       </div>
 
       {/* MOBILE FILTER BUTTON */}
@@ -25,13 +25,13 @@ export default function FilterSection() {
       {/* MOBILE FILTER PANEL (Sliding Up) */}
       {isOpen && (
         <motion.div
-          initial={{ y: "100%" }}
-          animate={{ y: 0 }}
-          exit={{ y: "100%" }}
+          initial={{ y: 0 }}
+          animate={{ y: "100%" }}
+          exit={{ y: 0 }}
           transition={{ duration: 0.3 }}
           className="md:hidden fixed bottom-0 left-0 w-full bg-white p-4 shadow-lg border-t rounded-t-lg"
         >
-          <DesktopFilterBar />
+          <FilterBar />
         </motion.div>
       )}
     </div>

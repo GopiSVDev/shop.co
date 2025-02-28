@@ -7,7 +7,7 @@ const ProductCard = ({ product }: { product: Product }) => {
   const { thumbnail, title, rating, price, discountPercentage } = product;
 
   return (
-    <Card className="max-w-[350px] rounded-2xl overflow-hidden shadow-lg font-satoshi">
+    <Card className="max-w-[350px] max-h-[500px] rounded-2xl overflow-hidden shadow-lg font-satoshi flex flex-col">
       <Image
         src={thumbnail}
         alt={`image of ${title}`}

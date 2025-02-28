@@ -1,10 +1,21 @@
 "use client";
 
 import { Slider } from "@/components/ui/slider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 
 const PriceFilter = () => {
+  const searchParams = useSearchParams();
+  const router = useRouter();
   const [values, setValues] = useState([0, 15000]);
+
+  useEffect(() => {
+    const [min, max] = values;
+    const params = new URLSearchParams(searchParams);
+    params.set("min", min.toString());
+    params.set("max", max.toString());
+    router.push(`?${params.toString()}`, { scroll: false });
+  }, [values, router, searchParams]);
 
   return (
     <div className="flex flex-col gap-4 font-satoshi">

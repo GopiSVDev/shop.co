@@ -6,7 +6,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { formatCategoryName } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
-interface Category {
+export interface Category {
   title: string;
   count: number;
 }

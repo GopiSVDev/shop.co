@@ -2,17 +2,17 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { SlidersHorizontal } from "lucide-react";
+import { SlidersHorizontal, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { allCategories } from "@/lib/utils";
 import CategoryFilter from "./CategoryFilter";
 import PriceFilter from "./PriceFilter";
+import { Category } from "./CategoryFilter";
 
 const FilterBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState<Category[]>([]);
 
-  // Fetch categories on mount
   useEffect(() => {
     const fetchCategories = async () => {
       const data = await allCategories();
@@ -62,7 +62,7 @@ const FilterBar = () => {
             className="lg:hidden fixed bottom-0 left-0 w-full bg-white shadow-lg border-t rounded-t-2xl px-6 py-5 z-50"
           >
             <p className="font-satoshi font-bold text-[20px] flex justify-between items-center">
-              Filters <SlidersHorizontal />
+              Filters <X onClick={() => setIsOpen(false)} />
             </p>
 
             <div className="w-full h-[1px] border border-[hsla(0,0%,0%,0.1)] my-6"></div>
