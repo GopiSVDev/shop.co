@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { getAllProducts } from "@/lib/api";
 
 export type Product = {
+  id: number;
   images: string[];
   title: string;
   rating: number;

@@ -1,3 +1,5 @@
+"use client";
+
 import CardGridSkeleton from "./CardGridSkeleton";
 import ProductCard from "./ProductCard";
 import { Product } from "@/store/useProductStore";

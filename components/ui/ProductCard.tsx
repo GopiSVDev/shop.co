@@ -1,13 +1,26 @@
+"use client";
+
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import StarRating from "./StarRating";
 import { Product } from "@/store/useProductStore";
+import { useRouter } from "next/navigation";
 
 const ProductCard = ({ product }: { product: Product }) => {
-  const { thumbnail, title, rating, price, discountPercentage } = product;
+  const router = useRouter();
+  const { id, thumbnail, title, rating, price, discountPercentage } = product;
+
+  console.log(id);
+
+  const handleClick = () => {
+    router.push(`/shop/${id}`);
+  };
 
   return (
-    <Card className="max-w-[350px] max-h-[500px] rounded-2xl overflow-hidden shadow-lg font-satoshi flex flex-col">
+    <Card
+      className="max-w-[350px] max-h-[500px] rounded-2xl overflow-hidden shadow-lg font-satoshi flex flex-col cursor-pointer transition duration-400 hover:scale-[1.1]"
+      onClick={handleClick}
+    >
       <Image
         src={thumbnail}
         alt={`image of ${title}`}
