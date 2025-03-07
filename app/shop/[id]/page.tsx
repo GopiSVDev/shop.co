@@ -6,7 +6,14 @@ export function generateStaticParams() {
 
 export const dynamic = "force-dynamic";
 
-export default function Page({ params }: { params: { id: string } }) {
+interface PageParams {
+  params: {
+    id: string;
+  };
+  searchParams: Record<string, string | string[]>;
+}
+
+export default async function Page({ params }: PageParams) {
   if (!params?.id) {
     return <div>Missing product ID</div>;
   }
