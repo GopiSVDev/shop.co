@@ -8,17 +8,22 @@ export default function Breadcrumbs() {
   const pathSegments = pathname.split("/").filter((segment) => segment);
 
   return (
-    <nav className="text-[16px] text-gray-500 py-7">
+    <nav className="text-[16px] text-gray-500 py-4">
       <ul className="flex space-x-2">
         <li>
           <Link href="/" className="hover:underline">
             Home
           </Link>
         </li>
+
         {pathSegments.map((segment, index) => {
           const href = `/${pathSegments.slice(0, index + 1).join("/")}`;
-          const formattedSegment =
-            segment.charAt(0).toUpperCase() + segment.slice(1);
+
+          // Decode & Format Segment Name
+          const formattedSegment = decodeURIComponent(segment)
+            .replace(/^\d+-/, "") // Remove ID prefixes like "83-"
+            .replace(/-/g, " ") // Convert dashes to spaces
+            .replace(/\b\w/g, (char) => char.toUpperCase()); // Capitalize words
 
           return (
             <li key={href} className="flex items-center">

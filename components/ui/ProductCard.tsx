@@ -10,10 +10,8 @@ const ProductCard = ({ product }: { product: Product }) => {
   const router = useRouter();
   const { id, thumbnail, title, rating, price, discountPercentage } = product;
 
-  console.log(id);
-
   const handleClick = () => {
-    router.push(`/shop/${id}`);
+    router.push(`/shop/${id}-${title}`);
   };
 
   return (
