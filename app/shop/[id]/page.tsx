@@ -1,15 +1,11 @@
 import SingleProduct from "@/components/layout/sections/shop/SingleProduct";
 
-export default async function Page({ params }: { params: { id?: string } }) {
-  console.log("params:", params); // Debugging
+interface PageProps {
+  params: { id: string };
+}
 
-  if (!params?.id) return <div>Product not found</div>;
+export default function Page({ params }: PageProps) {
+  const productId = parseInt(params.id?.split("-")[0] || "0", 10);
 
-  const productId = params?.id.split("-")[0];
-
-  if (!/^\d+$/.test(productId)) {
-    return <div>Invalid product ID</div>;
-  }
-
-  return <SingleProduct id={Number(productId)} />;
+  return <SingleProduct id={productId} />;
 }
