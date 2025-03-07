@@ -32,7 +32,6 @@ const FilterBar = () => {
 
         <div className="w-full h-[1px] border border-[hsla(0,0%,0%,0.1)] my-6"></div>
 
-        
         <CategoryFilter categories={categories} />
         <div className="w-full h-[1px] border border-[hsla(0,0%,0%,0.1)] my-6"></div>
         <PriceFilter />
