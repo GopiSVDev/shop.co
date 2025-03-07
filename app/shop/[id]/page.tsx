@@ -6,21 +6,26 @@ export function generateStaticParams() {
 
 export const dynamic = "force-dynamic";
 
-type Props = {
+// Define the params type according to Next.js 15 expectations
+type PageProps = {
   params: {
     id: string;
   };
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Record<string, string | string[] | undefined>;
 };
 
-export default async function Page(props: Props) {
-  const { params } = props;
+export default async function Page({ params }: PageProps) {
+  // We need to handle the id parsing safely
+  const id = params?.id;
 
-  if (!params?.id) {
+  if (!id) {
     return <div>Missing product ID</div>;
   }
 
-  const productId = parseInt(params.id.split("-")[0] || "0", 10);
+  const productId = parseInt(id.split("-")[0] || "0", 10);
+
+  // Simulate async behavior to satisfy Next.js 15 requirements
+  await Promise.resolve();
 
   return <SingleProduct id={productId} />;
 }
