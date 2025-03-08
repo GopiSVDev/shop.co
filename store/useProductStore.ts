@@ -10,6 +10,7 @@ export type Product = {
   discountPercentage: number;
   category: string;
   thumbnail: string;
+  description: string;
 };
 
 interface ProductStore {

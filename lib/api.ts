@@ -33,6 +33,7 @@ const getAllProducts = async (): Promise<Product[]> => {
       discountPercentage,
       category,
       thumbnail,
+      description,
     }: Product) => ({
       id,
       images,
@@ -42,6 +43,7 @@ const getAllProducts = async (): Promise<Product[]> => {
       discountPercentage,
       category,
       thumbnail,
+      description,
     })
   );
 };

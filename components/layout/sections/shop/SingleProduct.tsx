@@ -5,7 +5,9 @@ import { useProductStore } from "@/store/useProductStore";
 import ProductGallery from "./ProductGalley";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@radix-ui/react-dropdown-menu";
-import { Badge } from "@/components/ui/badge";
+import StarRating from "@/components/ui/StarRating";
+import ColorSelector from "./ColorSelector";
+import SizeSelector from "./SizeSelector";
 
 const SingleProduct = ({ id }: { id: number }) => {
   const allProducts = useStore(useProductStore, (state) => state.products);
@@ -13,55 +15,56 @@ const SingleProduct = ({ id }: { id: number }) => {
 
   return (
     <div className="container flex flex-col">
-      <div className="flex my-10">
+      <div className="flex my-10 gap-10">
         {/* Image Gallery */}
         <ProductGallery images={product?.images || []} />
 
         {/* Product Details */}
-        <div className="flex flex-col space-y-4 w-full lg:w-[400px]">
-          <h2 className="text-2xl font-bold">ONE LIFE GRAPHIC T-SHIRT</h2>
+        <div className="flex flex-col space-y-4">
+          <h2 className="font-integralCf text-[40px] font-bold">
+            {product?.title}
+          </h2>
 
           {/* Rating */}
-          <div className="flex items-center space-x-1 text-yellow-500">
-            ⭐⭐⭐⭐⭐ <span className="text-gray-500">4.5/5</span>
-          </div>
+          <StarRating rating={product?.rating || 0} />
 
           {/* Price Section */}
-          <div className="flex items-center space-x-3">
-            <span className="text-2xl font-bold">$260</span>
-            <span className="text-gray-400 line-through">$300</span>
-            <Badge variant="destructive">-40%</Badge>
+          <div className="flex gap-2 items-center font-satoshi text-[32px]">
+            <span className="text-[20px] font-bold">{`$${
+              product?.discountPercentage
+                ? (
+                    product.price -
+                    (product.price * product.discountPercentage) / 100
+                  ).toFixed(2)
+                : product?.price
+            }`}</span>
+
+            {product?.discountPercentage ? (
+              <>
+                <span className="text-[20px] font-bold text-[hsla(0,0%,0%,0.4)] line-through">
+                  {product.price}
+                </span>
+                <span className="text-[10px] text-[hsla(0,100%,60%,1)] p-[6px] bg-[hsla(0,100%,60%,0.1)] rounded-[62px] font-medium">
+                  {`-${product.discountPercentage}%`}
+                </span>
+              </>
+            ) : (
+              <></>
+            )}
           </div>
 
           {/* Description */}
-          <p className="text-gray-600">
-            This graphic t-shirt is perfect for any occasion. Crafted from soft,
-            breathable fabric, it offers superior comfort and style.
-          </p>
+          <p className="text-gray-600">{product?.description}</p>
+
+          <Separator className="my-6" />
+
+          {/* Color Selection */}
+          <ColorSelector />
 
           <Separator />
 
-          {/* Color Selection */}
-          <div>
-            <h4 className="text-lg font-semibold">Select Colors</h4>
-            <div className="flex space-x-2 mt-2">
-              <Button className="w-6 h-6 rounded-full bg-[#4E4B3A] border-2 border-black" />
-              <Button className="w-6 h-6 rounded-full bg-[#2C424D]" />
-              <Button className="w-6 h-6 rounded-full bg-[#33334D]" />
-            </div>
-          </div>
-
           {/* Size Selector */}
-          <div>
-            <h4 className="text-lg font-semibold">Choose Size</h4>
-            <div className="flex space-x-2 mt-2">
-              {["Small", "Medium", "Large", "X-Large"].map((size) => (
-                <Button key={size} variant="outline" className="px-4 py-2">
-                  {size}
-                </Button>
-              ))}
-            </div>
-          </div>
+          <SizeSelector />
 
           {/* Quantity & Add to Cart */}
           <div className="flex items-center space-x-4">
