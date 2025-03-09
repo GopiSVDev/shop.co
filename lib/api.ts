@@ -25,6 +25,7 @@ const getAllProducts = async (): Promise<Product[]> => {
 
   return data.map(
     ({
+      id,
       images,
       title,
       rating,
@@ -32,7 +33,9 @@ const getAllProducts = async (): Promise<Product[]> => {
       discountPercentage,
       category,
       thumbnail,
+      description,
     }: Product) => ({
+      id,
       images,
       title,
       rating,
@@ -40,6 +43,7 @@ const getAllProducts = async (): Promise<Product[]> => {
       discountPercentage,
       category,
       thumbnail,
+      description,
     })
   );
 };
