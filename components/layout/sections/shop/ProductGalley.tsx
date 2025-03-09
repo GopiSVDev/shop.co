@@ -1,10 +1,18 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const ProductGallery = ({ images }: { images: string[] }) => {
-  const [selectedImage, setSelectedImage] = useState(images[0] || "");
-  const [thumbnailImages, setThumbnailImages] = useState(images.slice(1) || []);
+  const [selectedImage, setSelectedImage] = useState("");
+  const [thumbnailImages, setThumbnailImages] = useState<string[]>([]);
+
+  // Update state when images prop changes
+  useEffect(() => {
+    if (images.length > 0) {
+      setSelectedImage(images[0]);
+      setThumbnailImages(images.slice(1));
+    }
+  }, [images]);
 
   // Function to swap images
   const handleImageClick = (clickedImage: string) => {
@@ -15,9 +23,26 @@ const ProductGallery = ({ images }: { images: string[] }) => {
   };
 
   return (
-    <div className="flex gap-3">
-      {/* Left - Small Thumbnails (3 Images) */}
-      <div className="flex flex-col gap-3">
+    <div className="flex flex-col lg:flex-row items-center gap-3">
+      {/* Big Image - Moves to top on mobile */}
+      {selectedImage ? (
+        <div
+          style={{
+            backgroundImage: `url(${selectedImage})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            transition: "background-image 0.3s ease-in-out",
+            backgroundColor: "hsla(0, 0%, 94%, 1)",
+          }}
+          className="h-[525px] w-[444px] rounded-[20px] lg:order-2 order-1"
+        ></div>
+      ) : (
+        <Skeleton className="h-[525px] w-[444px] rounded-[20px] lg:order-2 order-1" />
+      )}
+
+      {/* Thumbnails - Horizontal on mobile, vertical on desktop */}
+      <div className="flex lg:flex-col flex-row gap-3 order-2 lg:order-1">
         {thumbnailImages.length > 0
           ? thumbnailImages.map((img, index) => (
               <div
@@ -42,23 +67,6 @@ const ProductGallery = ({ images }: { images: string[] }) => {
               />
             ))}
       </div>
-
-      {/* Right - Big Image */}
-      {selectedImage ? (
-        <div
-          style={{
-            backgroundImage: `url(${selectedImage})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            transition: "background-image 0.3s ease-in-out",
-            backgroundColor: "hsla(0, 0%, 94%, 1)",
-          }}
-          className="h-[525px] w-[444px] rounded-[20px]"
-        ></div>
-      ) : (
-        <Skeleton className="h-[525px] w-[444px] rounded-[20px]" />
-      )}
     </div>
   );
 };
