@@ -18,15 +18,19 @@ const SingleProduct = ({ id }: { id: number }) => {
 
   return (
     <div className="container flex flex-col">
-      <div className="flex flex-col lg:flex-row my-10 gap-10">
-        {/* Image Gallery */}
-        <ProductGallery images={product?.images || []} />
+      <div className="flex flex-col lg:flex-row my-10 gap-10 items-start">
+        {/* Image Gallery - On Left (Desktop) & Top (Mobile) */}
+        <div className="w-full lg:w-1/2 flex justify-center">
+          <ProductGallery images={product?.images || []} />
+        </div>
 
-        {/* Product Details */}
-        {product && <ProductInfo product={product} />}
+        {/* Product Details - On Right (Desktop) & Bottom (Mobile) */}
+        <div className="w-full lg:w-1/2">
+          {product && <ProductInfo product={product} />}
+        </div>
       </div>
     </div>
-  );  
+  );
 };
 
 export default SingleProduct;
