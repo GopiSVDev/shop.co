@@ -127,8 +127,6 @@ body {
   }
 }
 
-
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -136,4 +134,8 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.mobile-nav {
+  z-index: 10000; /* Ensure it's above everything */
 }

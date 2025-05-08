@@ -9,7 +9,7 @@ import { Product } from "@/store/useProductStore";
 const ProductInfo = ({ product }: { product: Product }) => {
   return (
     <div className="flex flex-col space-y-4">
-      <h2 className="font-integralCf text-[24px] md:text-[40px] font-bold">
+      <h2 className="font-integralCf text-[clamp(1.5rem,1.2142857142857144rem+1.4285714285714286vw,2.5rem)] font-bold ">
         {product?.title}
       </h2>
 

@@ -16,7 +16,7 @@ const ProductCard = ({ product }: { product: Product }) => {
 
   return (
     <Card
-      className="max-w-[350px] max-h-[500px] rounded-2xl overflow-hidden shadow-lg font-satoshi flex flex-col cursor-pointer transition duration-400 hover:scale-[1.1]"
+      className="max-w-[350px] max-h-[500px] rounded-2xl overflow-hidden shadow-lg font-satoshi flex flex-col cursor-pointer transition duration-400"
       onClick={handleClick}
     >
       <Image
