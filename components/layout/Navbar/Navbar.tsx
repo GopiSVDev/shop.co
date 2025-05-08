@@ -6,6 +6,7 @@ import DesktopNav from "./DesktopNav";
 import SearchBar from "./SearchBar";
 import NavActions from "./NavActions";
 import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 
 const Navbar = () => {
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
@@ -25,7 +26,12 @@ const Navbar = () => {
   });
 
   return (
-    <header className="w-full bg-white sticky top-0 shadow-md">
+    <motion.header
+      initial={{ y: 10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.4 }}
+      className="w-full bg-white sticky top-0 shadow-md"
+    >
       <div className="container flex justify-between items-center px-4 py-5 md:px-10 lg:px-16 lg:gap-10">
         {/* Left Section */}
         <nav className="flex items-center gap-4">
@@ -53,7 +59,7 @@ const Navbar = () => {
           setIsMobileSearchOpen={setIsMobileSearchOpen}
         />
       </div>
-    </header>
+    </motion.header>
   );
 };
 
