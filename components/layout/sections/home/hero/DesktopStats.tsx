@@ -6,10 +6,10 @@ const DesktopStats = () => {
       <Stats count="200" caption="International Brands" />
       <div className="w-[2px] h-16 bg-[hsla(0,0%,0%,0.1)]"></div>{" "}
       {/* First Divider */}
-      <Stats count="2,000" caption="High-Quality Products" />
+      <Stats count="2000" caption="High-Quality Products" />
       <div className="w-[2px] h-16 bg-[hsla(0,0%,0%,0.1)]"></div>
       {/* Second Divider */}
-      <Stats count="30,000" caption="Happy Customers" />
+      <Stats count="30000" caption="Happy Customers" />
     </div>
   );
 };

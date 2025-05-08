@@ -8,12 +8,12 @@ const MobileStats = () => {
         <Stats count="200" caption="International Brands" />
         <div className="w-[2px] h-10 bg-[hsla(0,0%,0%,0.1)]"></div>{" "}
         {/* First Divider */}
-        <Stats count="2,000" caption="High-Quality Products" />
+        <Stats count="2000" caption="High-Quality Products" />
       </div>
 
       {/* Third Stat: Centered Below in Mobile, Part of Row in Large Screens */}
       <div className="flex justify-center md:hidden">
-        <Stats count="30,000" caption="Happy Customers" />
+        <Stats count="30000" caption="Happy Customers" />
       </div>
     </div>
   );

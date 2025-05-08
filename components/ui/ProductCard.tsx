@@ -1,6 +1,5 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import StarRating from "./StarRating";
 import { Product } from "@/store/useProductStore";
@@ -15,8 +14,8 @@ const ProductCard = ({ product }: { product: Product }) => {
   };
 
   return (
-    <Card
-      className="max-w-[350px] max-h-[500px] rounded-2xl overflow-hidden shadow-lg font-satoshi flex flex-col cursor-pointer transition duration-400"
+    <div
+      className="max-w-[350px] max-h-[500px] rounded-2xl overflow-hidden shadow-lg font-satoshi flex flex-col cursor-pointer transition duration-400 p-5"
       onClick={handleClick}
     >
       <Image
@@ -28,7 +27,7 @@ const ProductCard = ({ product }: { product: Product }) => {
         unoptimized
       />
 
-      <CardContent className="pt-2">
+      <div className="pt-2">
         <h2 className="text-[20px] font-bold">{title}</h2>
 
         {/* Rating */}
@@ -56,8 +55,8 @@ const ProductCard = ({ product }: { product: Product }) => {
             <></>
           )}
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 };
 
