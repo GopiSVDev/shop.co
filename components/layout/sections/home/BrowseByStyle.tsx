@@ -1,4 +1,5 @@
 import CategoryCard from "@/components/ui/CategoryCard";
+import * as motion from "motion/react-client";
 
 const BrowseByStyle = () => {
   const categories = [
@@ -14,7 +15,12 @@ const BrowseByStyle = () => {
   };
 
   return (
-    <div className="bg-[hsla(0,0%,94%,1)] container rounded-[40px] py-9 px-6 lg:px-16 flex flex-col justify-center">
+    <motion.div
+      initial={{ y: 100, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="bg-[hsla(0,0%,94%,1)] container rounded-[40px] py-9 px-6 lg:px-16 flex flex-col justify-center"
+    >
       <h2 className="font-bold font-integralCf text-[clamp(2rem,1.8rem+1vw,3rem)] text-center pb-8">
         BROWSE BY DRESS STYLE
       </h2>
@@ -28,7 +34,7 @@ const BrowseByStyle = () => {
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

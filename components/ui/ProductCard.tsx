@@ -4,6 +4,7 @@ import Image from "next/image";
 import StarRating from "./StarRating";
 import { Product } from "@/store/useProductStore";
 import { useRouter } from "next/navigation";
+import { motion } from "motion/react";
 
 const ProductCard = ({ product }: { product: Product }) => {
   const router = useRouter();
@@ -14,20 +15,22 @@ const ProductCard = ({ product }: { product: Product }) => {
   };
 
   return (
-    <div
-      className="max-w-[350px] max-h-[500px] rounded-2xl overflow-hidden shadow-lg font-satoshi flex flex-col cursor-pointer transition duration-400 p-5"
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.98 }}
+      className="max-w-[350px] max-h-[500px] rounded-2xl overflow-hidden shadow-lg font-satoshi flex flex-col cursor-pointer transition duration-400"
       onClick={handleClick}
     >
       <Image
         src={thumbnail}
         alt={`image of ${title}`}
-        className="lg:h-[350px] rounded-2xl object-cover w-[350px]"
+        className="lg:h-[350px] rounded-2xl object-cover w-[350px] bg-[hsla(0,0%,94%,1)]"
         height={200}
         width={200}
         unoptimized
       />
 
-      <div className="pt-2">
+      <div className="pt-2 p-5">
         <h2 className="text-[20px] font-bold">{title}</h2>
 
         {/* Rating */}
@@ -35,7 +38,7 @@ const ProductCard = ({ product }: { product: Product }) => {
         <StarRating rating={rating} />
 
         {/* Pricing */}
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-3 items-center ">
           <span className="text-[20px] font-bold">{`$${
             discountPercentage
               ? (price - (price * discountPercentage) / 100).toFixed(2)
@@ -56,7 +59,7 @@ const ProductCard = ({ product }: { product: Product }) => {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

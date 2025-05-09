@@ -3,22 +3,18 @@
 import Link from "next/link";
 
 const DesktopNav = () => {
+  const items: string[] = ["Shop", "On Sale", "New Arrivals", "Brands"];
+
   return (
     <>
-      <nav className="hidden md:flex items-center gap-6 font-satoshi font-normal">
+      <nav className="hidden md:flex items-center gap-6 font-satoshi font-normal ">
         <ul className="flex items-center gap-6">
-          <li>
-            <Link href="/shop">On Sale</Link>
-          </li>
-          <li>
-            <Link href="/shop">On Sale</Link>
-          </li>
-          <li>
-            <Link href="/shop">New Arrivals</Link>
-          </li>
-          <li>
-            <Link href="/shop">Brands</Link>
-          </li>
+          {items.map((item) => (
+            <li key={item} className="relative group">
+              <Link href="/shop">{item}</Link>
+              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
+            </li>
+          ))}
         </ul>
       </nav>
     </>
