@@ -8,7 +8,7 @@ const NewsLetter = () => {
       <p className="text-[32px] font-bold text-white font-integralCf">
         STAY UPTO DATE ABOUT OUR LATEST OFFERS
       </p>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 w-[100%] lg:w-full">
         {/* Email input with mail icon */}
         <div className="flex items-center gap-2 bg-white px-4 py-1 rounded-[64px] w-full h-[42px]">
           <Mail className="text-[hsla(0,0%,0%,0.4)]" />

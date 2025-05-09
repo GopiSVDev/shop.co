@@ -14,11 +14,10 @@ const colorMap: Record<string, string> = {
 };
 
 export default function ColorSelector() {
-  const [selectedColor, setSelectedColor] = useState<string | null>(null);
+  const [selectedColor, setSelectedColor] = useState<string | null>("red");
 
   const handleColorSelect = (color: string) => {
     setSelectedColor(color);
-    console.log("Selected Color Object:", { selectedColor: color });
   };
 
   return (

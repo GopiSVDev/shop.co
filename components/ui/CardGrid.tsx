@@ -1,6 +1,6 @@
 "use client";
 
-import CardGridSkeleton from "./CardGridSkeleton";
+import CardGridSkeleton from "./skeletons/CardGridSkeleton";
 import ProductCard from "./ProductCard";
 import { Product } from "@/store/useProductStore";
 import { motion } from "motion/react";
@@ -29,7 +29,7 @@ const CardGrid = ({ products }: { products: Product[] }) => {
       variants={containerVariants}
       initial="hidden"
       animate="show"
-      className="w-full flex gap-5 overflow-x-auto px-4 py-2 scroll-smooth scrollbar-hide justify-evenly"
+      className="w-full flex gap-10 overflow-x-auto px-4 py-2 scroll-smooth scrollbar-hide justify-evenly"
     >
       {products.map((product: Product, index: number) => {
         if (index < 4)
@@ -37,7 +37,7 @@ const CardGrid = ({ products }: { products: Product[] }) => {
             <motion.div
               key={product.title + index}
               variants={itemVariants}
-              className="flex-shrink-0 w-[85%] sm:w-[45%] md:w-[35%] lg:w-[300px]"
+              className="flex-shrink-0 md:w-[35%] lg:w-[300px]"
             >
               <ProductCard product={product} />
             </motion.div>

@@ -2,10 +2,11 @@
 
 import { Product, useProductStore } from "@/store/useProductStore";
 import ProductCard from "@/components/ui/ProductCard";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "@/components/ui/skeletons/skeleton";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useStore } from "zustand";
+import { motion } from "motion/react";
 
 const ProductsGrid = () => {
   const query = useSearchParams();
@@ -33,17 +34,34 @@ const ProductsGrid = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
       {filteredProducts.length > 0
-        ? filteredProducts.map((product) => (
-            <ProductCard
+        ? filteredProducts.map((product, index) => (
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.4,
+                ease: "easeOut",
+                delay: index * 0.1,
+              }}
               key={product.title + product.price}
-              product={product}
-            />
+            >
+              <ProductCard product={product} />
+            </motion.div>
           ))
         : Array.from({ length: 12 }).map((_, index) => (
-            <Skeleton
+            <div
               key={index}
-              className="w-[325px] h-[470px] rounded-2xl shadow-lg"
-            />
+              className="w-[325px] h-[470px] rounded-2xl shadow-lg p-4 flex flex-col gap-4"
+            >
+              <Skeleton className="w-full h-[310px] rounded-2xl" />
+              <Skeleton className="w-3/4 h-5 rounded-md" />
+              <Skeleton className="w-1/2 h-4 rounded-md" />
+              <div className="flex gap-3 items-center">
+                <Skeleton className="w-16 h-5 rounded-md" />
+                <Skeleton className="w-12 h-4 rounded-md" />
+                <Skeleton className="w-10 h-4 rounded-full" />
+              </div>
+            </div>
           ))}
     </div>
   );

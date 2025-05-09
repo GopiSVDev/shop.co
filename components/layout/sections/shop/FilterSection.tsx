@@ -10,19 +10,16 @@ export default function FilterSection() {
 
   return (
     <div className="relative">
-      {/* DESKTOP FILTER (Always Visible) */}
       <div className="hidden md:block">
         <FilterBar />
       </div>
 
-      {/* MOBILE FILTER BUTTON */}
       <div className="md:hidden fixed bottom-4 left-1/2 transform -translate-x-1/2">
         <Button onClick={() => setIsOpen(!isOpen)} className="px-4 py-2">
           {isOpen ? "Close Filters" : "Show Filters"}
         </Button>
       </div>
 
-      {/* MOBILE FILTER PANEL (Sliding Up) */}
       {isOpen && (
         <motion.div
           initial={{ y: 0 }}

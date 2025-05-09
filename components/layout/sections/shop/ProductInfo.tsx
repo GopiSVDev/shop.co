@@ -51,10 +51,8 @@ const ProductInfo = ({ product }: { product: Product }) => {
 
       <Separator />
 
-      {/* Size Selector */}
       <SizeSelector />
 
-      {/* Quantity Selector and Add To Cart */}
       <QuantitySelector />
     </div>
   );

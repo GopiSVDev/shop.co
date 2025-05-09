@@ -5,7 +5,8 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { formatCategoryName } from "@/lib/utils";
 import { useEffect, useState } from "react";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "@/components/ui/skeletons/skeleton";
+import { motion } from "motion/react";
 
 export interface Category {
   title: string;
@@ -20,19 +21,16 @@ const CategoryFilter = ({ categories }: { categories: Category[] }) => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  // Simulate loading effect (Remove if not needed)
   useEffect(() => {
     if (categories.length > 0) {
       setIsLoading(false);
     }
   }, [categories]);
 
-  // Set category from URL params on mount
   useEffect(() => {
     setSelectedCategory(searchParams.get("category") || null);
   }, [searchParams]);
 
-  // Function to update the category in the URL
   const handleCategoryChange = (category: string) => {
     const newParams = new URLSearchParams(searchParams.toString());
 
@@ -48,14 +46,46 @@ const CategoryFilter = ({ categories }: { categories: Category[] }) => {
   };
 
   return (
-    <div className="flex flex-col gap-3">
+    <motion.div
+      className="flex flex-col gap-3"
+      initial="hidden"
+      animate="show"
+      variants={{
+        hidden: { opacity: 0 },
+        show: {
+          opacity: 1,
+          transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.2,
+          },
+        },
+      }}
+    >
       {isLoading
-        ? [...Array(4)].map((_, index) => (
-            <Skeleton key={index} className="h-[24px] w-full rounded-md" />
+        ? [...Array(10)].map((_, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                duration: 0.3,
+                ease: "easeOut",
+                delay: index * 0.1,
+              }}
+            >
+              <Skeleton className="h-[24px] w-full rounded-md" />
+            </motion.div>
           ))
         : categories.map(({ title, count }, index) => (
-            <div
+            <motion.div
               key={title + index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.3,
+                ease: "easeOut",
+                delay: index * 0.1,
+              }}
               className="flex justify-between items-center"
             >
               <Label className="text-[16px] flex items-center gap-2">
@@ -66,9 +96,9 @@ const CategoryFilter = ({ categories }: { categories: Category[] }) => {
                 checked={selectedCategory === title}
                 onCheckedChange={() => handleCategoryChange(title)}
               />
-            </div>
+            </motion.div>
           ))}
-    </div>
+    </motion.div>
   );
 };
 

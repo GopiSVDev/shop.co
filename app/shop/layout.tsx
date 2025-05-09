@@ -9,7 +9,6 @@ export default function ShopLayout({
 }) {
   return (
     <div className="container px-4 py-5 md:px-10 lg:px-16">
-      {/* Breadcrumbs will appear on all Shop pages */}
       <Breadcrumbs />
 
       <div className="flex gap-5 justify-center lg:justify-start">

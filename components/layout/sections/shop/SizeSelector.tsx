@@ -7,8 +7,8 @@ export default function SizeSelector() {
 
   return (
     <div className="font-satoshi">
-      <h4 className="text-lg font-semibold">Choose Size</h4>
-      <div className="flex space-x-2 mt-2">
+      <h4 className="text-lg font-semibold mb-4">Choose Size</h4>
+      <div className="flex flex-wrap space-x-2">
         {["Small", "Medium", "Large", "X-Large"].map((size) => (
           <Button
             key={size}
