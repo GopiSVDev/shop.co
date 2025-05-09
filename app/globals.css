@@ -15,6 +15,14 @@ body {
   @apply h-fit w-[1px] border border-[hsla(0,0%,0%,0.1)];
 }
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

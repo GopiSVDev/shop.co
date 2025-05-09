@@ -16,18 +16,18 @@ const ProductCard = ({ product }: { product: Product }) => {
 
   return (
     <motion.div
-      whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.98 }}
-      className="max-w-[350px] max-h-[500px] rounded-2xl overflow-hidden shadow-lg font-satoshi flex flex-col cursor-pointer transition duration-400"
+      className="max-w-[300px] h-[auto] lg:h-[440px] rounded-2xl overflow-hidden shadow-lg font-satoshi flex flex-col cursor-pointer transition duration-400"
       onClick={handleClick}
     >
       <Image
         src={thumbnail}
         alt={`image of ${title}`}
-        className="lg:h-[350px] rounded-2xl object-cover w-[350px] bg-[hsla(0,0%,94%,1)]"
-        height={200}
-        width={200}
+        className="min-h-[200px] max-h-[310px] rounded-2xl object-cover w-full bg-[hsla(0,0%,94%,1)]"
+        height={310}
+        width={300}
         unoptimized
+        draggable={false}
       />
 
       <div className="pt-2 p-5">
@@ -38,7 +38,7 @@ const ProductCard = ({ product }: { product: Product }) => {
         <StarRating rating={rating} />
 
         {/* Pricing */}
-        <div className="flex gap-3 items-center ">
+        <div className="flex gap-3 items-center">
           <span className="text-[20px] font-bold">{`$${
             discountPercentage
               ? (price - (price * discountPercentage) / 100).toFixed(2)

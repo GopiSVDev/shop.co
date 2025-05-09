@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import MobileCarousel from "../../../ui/MobileCarousel";
+// import MobileCarousel from "../../../ui/MobileCarousel";
 import CardGrid from "../../../ui/CardGrid";
 import { useProductStore } from "@/store/useProductStore";
 import Link from "next/link";
@@ -29,7 +29,6 @@ const NewArrivals = () => {
           NEW ARRIVALS
         </motion.h2>
 
-        <MobileCarousel data={randomProducts} />
         <CardGrid products={randomProducts} />
         <Link href="/shop">
           <Button className="my-8 w-full max-w-[220px] transform transition-transform duration-200 hover:scale-[1.1] active:scale-90">

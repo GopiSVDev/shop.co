@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import MobileCarousel from "../../../ui/MobileCarousel";
 import CardGrid from "../../../ui/CardGrid";
 import { useProductStore } from "@/store/useProductStore";
 import Link from "next/link";
@@ -12,7 +11,7 @@ const TopSelling = () => {
 
   const randomProducts = products
     .sort(() => Math.random() - 0.5) // Quick shuffle
-    .slice(0, 4);
+    .slice(0, 6);
 
   return (
     <section
@@ -28,7 +27,6 @@ const TopSelling = () => {
         TOP SELLING
       </motion.h2>
 
-      <MobileCarousel data={randomProducts} />
       <CardGrid products={randomProducts} />
       <Link href="/shop">
         <Button className="my-8 w-full max-w-[220px] transform transition-transform duration-200 hover:scale-[1.1] active:scale-90">

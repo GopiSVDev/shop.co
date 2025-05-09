@@ -28,13 +28,17 @@ const CardGrid = ({ products }: { products: Product[] }) => {
     <motion.div
       variants={containerVariants}
       initial="hidden"
-      whileInView="show"
-      className="hidden w-full md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center"
+      animate="show"
+      className="w-full flex gap-5 overflow-x-auto px-4 py-2 scroll-smooth scrollbar-hide justify-evenly"
     >
       {products.map((product: Product, index: number) => {
         if (index < 4)
           return (
-            <motion.div key={product.title + index} variants={itemVariants}>
+            <motion.div
+              key={product.title + index}
+              variants={itemVariants}
+              className="flex-shrink-0 w-[85%] sm:w-[45%] md:w-[35%] lg:w-[300px]"
+            >
               <ProductCard product={product} />
             </motion.div>
           );
