@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { ChevronDown, X, Menu } from "lucide-react";
+import { X, Menu } from "lucide-react";
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,18 +12,18 @@ const MobileNav = () => {
       <button
         onClick={() => setIsOpen(true)}
         aria-label="Open menu"
-        className="md:hidden"
+        className="md:hidden p-2"
       >
-        <Menu />
+        <Menu size={24} />
       </button>
 
       {/* Mobile Side Nav */}
       <div
-        className={`fixed inset-y-0 left-0 w-64 bg-white shadow-lg z-50 transform ${
+        className={`fixed inset-0 bg-white z-50 transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out md:hidden mobile-nav`}
+        } transition-transform duration-300 ease-in-out md:hidden shadow-lg`}
       >
-        <div className="p-4 flex justify-between items-center border-b">
+        <div className="flex justify-between items-center p-4 border-b">
           <Link
             href="/"
             className="font-integralCf text-2xl font-bold md:text-3xl"
@@ -34,14 +34,15 @@ const MobileNav = () => {
             <X size={24} />
           </button>
         </div>
+
         <ul className="flex flex-col p-4 gap-4">
           <li>
             <Link
-              className="flex items-center gap-1"
               href="/"
+              className="flex items-center justify-between gap-1"
               onClick={() => setIsOpen(false)}
             >
-              Shop <ChevronDown size={16} />
+              Shop
             </Link>
           </li>
           <li>

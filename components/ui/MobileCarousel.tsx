@@ -12,7 +12,7 @@ import { Product } from "@/store/useProductStore";
 
 const MobileCarousel = ({ data }: { data: Product[] }) => {
   return (
-    <Carousel className="max-w-[320px] md:hidden">
+    <Carousel className="max-w-[320px] md:hidden z-10">
       <CarouselContent>
         {data.map((product, index) => {
           return (

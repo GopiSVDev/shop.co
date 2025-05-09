@@ -82,7 +82,7 @@ const PrimaryInfo = () => {
       </motion.p>
       <Link href="/shop">
         <Button className="font-satoshi font-medium w-full md:max-w-[210px] transform transition-transform duration-200 hover:scale-[1.1] active:scale-90">
-          Shop Now{" "}
+          Shop Now
         </Button>
       </Link>
     </div>
