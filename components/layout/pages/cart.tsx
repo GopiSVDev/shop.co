@@ -1,19 +1,14 @@
-"use client";
-
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import CartItemCard from "../sections/cart/CartItemCard";
 import { CartItem } from "@/store/useCartStore";
-import { useProductStore } from "@/store/useProductStore";
 import OrderSummary from "../sections/cart/OrderSummary";
 
 const Cart = () => {
-  const products = useProductStore((state) => state.products);
-  const thumbnail = products && products[0].thumbnail;
-
   const cartItem: CartItem = {
     id: 1,
     title: "Gradient Graphic T-shirt",
-    thumbnail: thumbnail,
+    thumbnail:
+      "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/thumbnail.webp",
     size: "Small",
     color: "Red",
     price: 224,
