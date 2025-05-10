@@ -1,5 +1,5 @@
 import React from "react";
-import { Separator } from "@radix-ui/react-dropdown-menu";
+import { Separator } from "@/components/ui/separator";
 import StarRating from "@/components/ui/StarRating";
 import ColorSelector from "./ColorSelector";
 import SizeSelector from "./SizeSelector";
@@ -52,6 +52,8 @@ const ProductInfo = ({ product }: { product: Product }) => {
       <Separator />
 
       <SizeSelector />
+
+      <Separator />
 
       <QuantitySelector />
     </div>

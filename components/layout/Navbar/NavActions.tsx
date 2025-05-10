@@ -1,6 +1,7 @@
 "use client";
 
 import { ShoppingCart, Search } from "lucide-react";
+import Link from "next/link";
 
 const NavActions = ({
   isMobileSearchOpen,
@@ -21,7 +22,9 @@ const NavActions = ({
             <Search size={24} />
           </button>
           <button aria-label="Shopping Cart">
-            <ShoppingCart />
+            <Link href="/cart">
+              <ShoppingCart />
+            </Link>
           </button>
         </div>
       )}
