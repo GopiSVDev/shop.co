@@ -22,23 +22,24 @@ const CartItemCard = ({ cartItem }: { cartItem: CartItem }) => {
         </div>
 
         <div className="flex flex-col w-full px-2 font-satoshi">
-          <div className="flex justify-between items-center text-[12px] font-medium gap-4">
+          <div className="flex justify-between items-center text-[12px] md:text-[16px] lg:text-[20px] font-medium gap-4">
             <p>{title}</p>
-            <Trash2 width={16} className="text-red-500" />
+            <Trash2 width={16} className="text-red-500 md:w-[20px]" />
           </div>
 
-          <p className="text-[12px]">
+          <p className="text-[12px] md:text-[14px] lg:text-[16px]">
             Size: <span className="text-gray-500">{size}</span>
           </p>
-          <p className="text-[12px]">
+          <p className="text-[12px] md:text-[14px] lg:text-[16px]">
             Color: <span className="text-gray-500">{color}</span>
           </p>
 
           <div className="flex justify-between items-center gap-5 mt-2 w-full">
             <p className="text-[20px] font-bold">${price}</p>
 
-            <div className="flex items-center justify-around px-2 max-w-[120px] border border-gray-300 rounded-[62px] shadow-sm bg-offWhite overflow-hidden">
-              <button className="w-[12px] flex items-center justify-center hover:opacity-70 transition">
+            {/* Quantity Selector */}
+            <div className="flex items-center justify-around px-2 max-w-[120px] border border-gray-300 rounded-[62px] shadow-sm bg-offWhite overflow-hidden lg:gap-4 lg:py-1">
+              <button className="w-[12px] lg:w-[20px] flex items-center justify-center hover:opacity-70 transition">
                 <Minus className="w-full h-full" />
               </button>
 
@@ -49,14 +50,14 @@ const CartItemCard = ({ cartItem }: { cartItem: CartItem }) => {
                     initial="initial"
                     animate="animate"
                     exit="exit"
-                    className="absolute text-[12px] font-medium"
+                    className="absolute text-[12px] lg:text-[20px] font-medium"
                   >
                     {quantity}
                   </motion.span>
                 </AnimatePresence>
               </div>
 
-              <button className="w-[12px] flex items-center justify-center hover:opacity-70 transition">
+              <button className="w-[12px] lg:w-[20px] flex items-center justify-center hover:opacity-70 transition">
                 <Plus className="w-full h-full" />
               </button>
             </div>
