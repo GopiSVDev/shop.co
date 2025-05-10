@@ -1,6 +1,6 @@
 "use client";
 
-import { ShoppingCart, Search, CircleUserRound } from "lucide-react";
+import { ShoppingCart, Search } from "lucide-react";
 
 const NavActions = ({
   isMobileSearchOpen,
@@ -22,9 +22,6 @@ const NavActions = ({
           </button>
           <button aria-label="Shopping Cart">
             <ShoppingCart />
-          </button>
-          <button aria-label="User Profile">
-            <CircleUserRound />
           </button>
         </div>
       )}

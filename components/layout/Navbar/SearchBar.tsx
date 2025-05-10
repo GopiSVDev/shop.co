@@ -18,6 +18,7 @@ const SearchBar = ({
       </div>
 
       {/* Mobile Version */}
+
       {isMobileSearchOpen && (
         <MobileSearchBar setIsMobileSearchOpen={setIsMobileSearchOpen} />
       )}

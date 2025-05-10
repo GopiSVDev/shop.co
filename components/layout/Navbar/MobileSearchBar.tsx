@@ -1,6 +1,7 @@
 import { X, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import * as motion from "motion/react-client";
 
 const MobileSearchBar = ({
   setIsMobileSearchOpen,
@@ -10,7 +11,11 @@ const MobileSearchBar = ({
   const [searchValue, setSearchValue] = useState("");
 
   return (
-    <div className="lg:hidden flex items-center bg-offWhite w-full px-2 mx-2 rounded-lg md:w-[50%]">
+    <motion.div
+      initial={{ x: 200, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      className="lg:hidden flex items-center bg-offWhite w-full px-2 mx-2 rounded-lg md:w-[50%]"
+    >
       <Input
         className="font-satoshi text-[16px] px-2"
         placeholder="Search for products..."
@@ -27,7 +32,7 @@ const MobileSearchBar = ({
           <X size={18} />
         </button>
       )}
-    </div>
+    </motion.div>
   );
 };
 
