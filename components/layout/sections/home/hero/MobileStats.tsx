@@ -2,7 +2,7 @@ import Stats from "./Stats";
 
 const MobileStats = () => {
   return (
-    <div className="flex flex-col justify-center pb-5 md:hidden">
+    <div className="flex flex-col justify-center pb-5 md:hidden mt-5">
       {/* First Row: Show Two Stats with One Divider */}
       <div className="lg:hidden flex flex-row justify-evenly pb-4">
         <Stats count="200" caption="International Brands" />

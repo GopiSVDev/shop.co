@@ -22,20 +22,27 @@ const slideVariants = {
   }),
 };
 
-const QuantitySelector = () => {
-  const [quantity, setQuantity] = useState(1);
+const QuantitySelector = ({
+  selectedQuantity,
+  setSelectedQuantity,
+  handleAddToCart,
+}: {
+  selectedQuantity: number;
+  setSelectedQuantity: React.Dispatch<React.SetStateAction<number>>;
+  handleAddToCart: () => void;
+}) => {
   const [direction, setDirection] = useState(0);
 
   const handleDecrease = () => {
-    if (quantity > 1) {
+    if (selectedQuantity > 1) {
       setDirection(-1);
-      setQuantity((prev) => prev - 1);
+      setSelectedQuantity((prev) => prev - 1);
     }
   };
 
   const handleIncrease = () => {
     setDirection(1);
-    setQuantity((prev) => prev + 1);
+    setSelectedQuantity((prev) => prev + 1);
   };
 
   return (
@@ -52,7 +59,7 @@ const QuantitySelector = () => {
         <div className="relative h-[24px] w-[24px] flex items-center justify-center overflow-hidden">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.span
-              key={quantity}
+              key={selectedQuantity}
               variants={slideVariants}
               initial="initial"
               animate="animate"
@@ -60,7 +67,7 @@ const QuantitySelector = () => {
               custom={direction}
               className="absolute text-[20px] md:text-[24px] font-medium"
             >
-              {quantity}
+              {selectedQuantity}
             </motion.span>
           </AnimatePresence>
         </div>
@@ -74,7 +81,10 @@ const QuantitySelector = () => {
       </div>
 
       {/* Add to Cart Button */}
-      <Button className="bg-black text-white hover:bg-gray-900 rounded-[62px] py-4 m-0 min-w-[200px] max-w-[400px] w-full">
+      <Button
+        className="bg-black text-white hover:bg-gray-900 rounded-[62px] py-4 m-0 min-w-[200px] max-w-[400px] w-full"
+        onClick={handleAddToCart}
+      >
         Add to Cart
       </Button>
     </div>

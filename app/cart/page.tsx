@@ -1,3 +1,5 @@
+"use client";
+
 import Cart from "@/components/layout/pages/cart";
 import PageWrapper from "@/components/PageWrapper";
 

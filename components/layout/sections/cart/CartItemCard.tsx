@@ -1,4 +1,4 @@
-import { CartItem } from "@/store/useCartStore";
+import { CartItem, useCartStore } from "@/store/useCartStore";
 import Image from "next/image";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import * as motion from "motion/react-client";
@@ -6,7 +6,10 @@ import { AnimatePresence } from "motion/react";
 import { Separator } from "@/components/ui/separator";
 
 const CartItemCard = ({ cartItem }: { cartItem: CartItem }) => {
-  const { thumbnail, title, size, color, price, quantity } = cartItem;
+  const { id, thumbnail, title, size, color, price, quantity } = cartItem;
+  const increaseQuantity = useCartStore((state) => state.increaseQuantity);
+  const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);
+  const removeFromCart = useCartStore((state) => state.removeFromCart);
 
   return (
     <>
@@ -24,7 +27,11 @@ const CartItemCard = ({ cartItem }: { cartItem: CartItem }) => {
         <div className="flex flex-col w-full px-2 font-satoshi">
           <div className="flex justify-between items-center text-[12px] md:text-[16px] lg:text-[20px] font-medium gap-4">
             <p>{title}</p>
-            <Trash2 width={16} className="text-red-500 md:w-[20px]" />
+            <Trash2
+              width={16}
+              className="text-red-500 md:w-[20px] cursor-pointer"
+              onClick={() => removeFromCart(id, size, color)}
+            />
           </div>
 
           <p className="text-[12px] md:text-[14px] lg:text-[16px]">
@@ -39,7 +46,10 @@ const CartItemCard = ({ cartItem }: { cartItem: CartItem }) => {
 
             {/* Quantity Selector */}
             <div className="flex items-center justify-around px-2 max-w-[120px] border border-gray-300 rounded-[62px] shadow-sm bg-offWhite overflow-hidden lg:gap-4 lg:py-1">
-              <button className="w-[12px] lg:w-[20px] flex items-center justify-center hover:opacity-70 transition">
+              <button
+                className="w-[12px] lg:w-[20px] flex items-center justify-center hover:opacity-70 transition"
+                onClick={() => decreaseQuantity(id, size, color)}
+              >
                 <Minus className="w-full h-full" />
               </button>
 
@@ -57,7 +67,10 @@ const CartItemCard = ({ cartItem }: { cartItem: CartItem }) => {
                 </AnimatePresence>
               </div>
 
-              <button className="w-[12px] lg:w-[20px] flex items-center justify-center hover:opacity-70 transition">
+              <button
+                className="w-[12px] lg:w-[20px] flex items-center justify-center hover:opacity-70 transition"
+                onClick={() => increaseQuantity(id, size, color)}
+              >
                 <Plus className="w-full h-full" />
               </button>
             </div>

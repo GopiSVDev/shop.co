@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
 
-export default function SizeSelector() {
-  const [selectedSize, setSelectedSize] = useState<string>("Small");
-
+export default function SizeSelector({
+  selectedSize,
+  setSelectedSize,
+}: {
+  selectedSize: string;
+  setSelectedSize: React.Dispatch<React.SetStateAction<string>>;
+}) {
   return (
     <div className="font-satoshi">
       <h4 className="text-lg font-semibold my-2">Choose Size</h4>

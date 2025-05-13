@@ -1,21 +1,24 @@
 "use client";
 
-import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const colorMap: Record<string, string> = {
-  red: "#ef4444",
-  blue: "#3b82f6",
-  green: "#10b981",
-  yellow: "#facc15",
-  purple: "#a855f7",
-  pink: "#ec4899",
-  gray: "#6b7280",
+  Red: "#ef4444",
+  Blue: "#3b82f6",
+  Green: "#10b981",
+  Yellow: "#facc15",
+  Purple: "#a855f7",
+  Pink: "#ec4899",
+  Gray: "#6b7280",
 };
 
-export default function ColorSelector() {
-  const [selectedColor, setSelectedColor] = useState<string | null>("red");
-
+export default function ColorSelector({
+  selectedColor,
+  setSelectedColor,
+}: {
+  selectedColor: string;
+  setSelectedColor: React.Dispatch<React.SetStateAction<string>>;
+}) {
   const handleColorSelect = (color: string) => {
     setSelectedColor(color);
   };
