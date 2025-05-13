@@ -17,8 +17,9 @@ const SearchBar = ({
   const router = useRouter();
 
   const handleSearch = () => {
-    if (!searchValue.trim()) return;
-    router.push(`/shop?search=${encodeURIComponent(searchValue.trim())}`);
+    if (searchValue.trim()) {
+      router.push(`/shop?search=${encodeURIComponent(searchValue.trim())}`);
+    }
   };
 
   useEffect(() => {
@@ -33,7 +34,14 @@ const SearchBar = ({
         <Input
           type="text"
           value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
+          onChange={(e) => {
+            const value = e.target.value;
+            setSearchValue(value);
+
+            if (value.trim() === "") {
+              router.push("/shop");
+            }
+          }}
           onKeyDown={(e) => e.key === "Enter" && handleSearch()}
           className="font-satoshi"
           placeholder="Search for products..."
