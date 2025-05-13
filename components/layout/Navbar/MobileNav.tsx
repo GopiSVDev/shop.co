@@ -56,7 +56,7 @@ const MobileNav = () => {
             </Link>
           </li>
           <li>
-            <Link href="/" onClick={() => setIsOpen(false)}>
+            <Link href="/#brands" onClick={() => setIsOpen(false)}>
               Brands
             </Link>
           </li>

@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 export type CartItem = {
   id: number;
@@ -20,54 +21,60 @@ interface CartStore {
   clearCart: () => void;
 }
 
-export const useCartStore = create<CartStore>((set) => ({
-  cart: [],
+export const useCartStore = create<CartStore>()(
+  persist(
+    (set, get) => ({
+      cart: [],
 
-  addToCart: (newItem) =>
-    set((state) => {
-      const existingItemIndex = state.cart.findIndex(
-        (item) =>
-          item.id === newItem.id &&
-          item.size === newItem.size &&
-          item.color === newItem.color
-      );
+      addToCart: (newItem) => {
+        const existingItemIndex = get().cart.findIndex(
+          (item) =>
+            item.id === newItem.id &&
+            item.size === newItem.size &&
+            item.color === newItem.color
+        );
 
-      if (existingItemIndex !== -1) {
-        const updatedCart = [...state.cart];
-        updatedCart[existingItemIndex].quantity += newItem.quantity;
-        return { cart: updatedCart };
-      }
+        if (existingItemIndex !== -1) {
+          const updatedCart = [...get().cart];
+          updatedCart[existingItemIndex].quantity += newItem.quantity;
+          return set({ cart: updatedCart });
+        }
 
-      return { cart: [...state.cart, newItem] };
+        return set({ cart: [...get().cart, newItem] });
+      },
+
+      removeFromCart: (id, size, color) =>
+        set({
+          cart: get().cart.filter(
+            (item) =>
+              !(item.id === id && item.size === size && item.color === color)
+          ),
+        }),
+
+      increaseQuantity: (id, size, color) =>
+        set({
+          cart: get().cart.map((item) =>
+            item.id === id && item.size === size && item.color === color
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          ),
+        }),
+
+      decreaseQuantity: (id, size, color) =>
+        set({
+          cart: get()
+            .cart.map((item) =>
+              item.id === id && item.size === size && item.color === color
+                ? { ...item, quantity: item.quantity - 1 }
+                : item
+            )
+            .filter((item) => item.quantity > 0),
+        }),
+
+      clearCart: () => set({ cart: [] }),
     }),
-
-  removeFromCart: (id, size, color) =>
-    set((state) => ({
-      cart: state.cart.filter(
-        (item) =>
-          !(item.id === id && item.size === size && item.color === color)
-      ),
-    })),
-
-  increaseQuantity: (id, size, color) =>
-    set((state) => ({
-      cart: state.cart.map((item) =>
-        item.id === id && item.size === size && item.color === color
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      ),
-    })),
-
-  decreaseQuantity: (id, size, color) =>
-    set((state) => ({
-      cart: state.cart
-        .map((item) =>
-          item.id === id && item.size === size && item.color === color
-            ? { ...item, quantity: item.quantity - 1 }
-            : item
-        )
-        .filter((item) => item.quantity > 0),
-    })),
-
-  clearCart: () => set({ cart: [] }),
-}));
+    {
+      name: "cart-storage",
+    }
+  )
+);

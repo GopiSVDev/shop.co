@@ -7,7 +7,7 @@ const DesktopNav = () => {
     { label: "Shop", href: "/shop", type: "route" },
     { label: "Top Selling", href: "/#top-selling", type: "route" },
     { label: "New Arrivals", href: "/#new-arrivals", type: "route" },
-    { label: "Brands", href: "/", type: "route" },
+    { label: "Brands", href: "/#brands", type: "route" },
   ];
 
   return (

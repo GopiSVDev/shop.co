@@ -9,7 +9,9 @@ const Index = () => {
   return (
     <>
       <Hero />
-      <Sponsors />
+      <div id="brands">
+        <Sponsors />
+      </div>
       <div id="new-arrivals">
         <NewArrivals />
       </div>

@@ -9,9 +9,7 @@ import { motion } from "motion/react";
 const TopSelling = () => {
   const products = useProductStore((state) => state.products);
 
-  const randomProducts = products
-    .sort(() => Math.random() - 0.5) // Quick shuffle
-    .slice(0, 6);
+  const randomProducts = products.sort(() => Math.random() - 0.5).slice(0, 6);
 
   return (
     <section
