@@ -1,15 +1,18 @@
 import { X, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
 import * as motion from "motion/react-client";
 
 const MobileSearchBar = ({
   setIsMobileSearchOpen,
+  searchValue,
+  setSearchValue,
+  handleSearch,
 }: {
   setIsMobileSearchOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  searchValue: string;
+  setSearchValue: React.Dispatch<React.SetStateAction<string>>;
+  handleSearch: () => void;
 }) => {
-  const [searchValue, setSearchValue] = useState("");
-
   return (
     <motion.div
       initial={{ x: 200, opacity: 0 }}
@@ -23,7 +26,7 @@ const MobileSearchBar = ({
         onChange={(e) => setSearchValue(e.target.value)}
       />
       {searchValue ? (
-        <Search size={18} className="text-gray-500" />
+        <Search size={18} className="text-gray-500" onClick={handleSearch} />
       ) : (
         <button
           onClick={() => setIsMobileSearchOpen(false)}
