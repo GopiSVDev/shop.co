@@ -10,9 +10,15 @@ const Index = () => {
     <>
       <Hero />
       <Sponsors />
-      <NewArrivals />
-      <TopSelling />
-      <BrowseByStyle />
+      <div id="new-arrivals">
+        <NewArrivals />
+      </div>
+      <div id="top-selling">
+        <TopSelling />
+      </div>
+      <div id="browse-style">
+        <BrowseByStyle />
+      </div>
       <Testimonials />
     </>
   );

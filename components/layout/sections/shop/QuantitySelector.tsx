@@ -82,7 +82,7 @@ const QuantitySelector = ({
 
       {/* Add to Cart Button */}
       <Button
-        className="bg-black text-white hover:bg-gray-900 rounded-[62px] py-4 m-0 min-w-[200px] max-w-[400px] w-full"
+        className="bg-black text-white hover:bg-gray-900 rounded-[62px] py-4 m-0 min-w-[200px] max-w-[400px] w-full transform transition-transform duration-200 hover:scale-[1.05] active:scale-90"
         onClick={handleAddToCart}
       >
         Add to Cart

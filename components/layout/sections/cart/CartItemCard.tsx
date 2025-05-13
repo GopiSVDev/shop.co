@@ -42,7 +42,11 @@ const CartItemCard = ({ cartItem }: { cartItem: CartItem }) => {
           </p>
 
           <div className="flex justify-between items-center gap-5 mt-2 w-full">
-            <p className="text-[20px] font-bold">${price}</p>
+            {price.toString().length > 6 ? (
+              <p className="text-[12px] font-bold">${price}</p>
+            ) : (
+              <p className="text-[20px] font-bold">${price}</p>
+            )}
 
             {/* Quantity Selector */}
             <div className="flex items-center justify-around px-2 max-w-[120px] border border-gray-300 rounded-[62px] shadow-sm bg-offWhite overflow-hidden lg:gap-4 lg:py-1">
