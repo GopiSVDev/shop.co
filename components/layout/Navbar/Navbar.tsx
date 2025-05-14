@@ -10,7 +10,6 @@ import { motion } from "motion/react";
 
 const Navbar = () => {
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
-  const [scrollingUp, setScrollingUp] = useState(false);
   const [prevScrollY, setPrevScrollY] = useState(0);
   const [scrollingDown, setScrollingDown] = useState(false);
   useEffect(() => {
@@ -25,9 +24,7 @@ const Navbar = () => {
 
       if (currentScrollY > prevScrollY) {
         setScrollingDown(true);
-        setScrollingUp(false);
       } else if (currentScrollY < prevScrollY - 10) {
-        setScrollingUp(true);
         setScrollingDown(false);
       }
       setPrevScrollY(currentScrollY);

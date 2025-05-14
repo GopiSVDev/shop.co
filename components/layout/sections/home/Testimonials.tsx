@@ -1,10 +1,5 @@
 import TestimonialCard from "../../../ui/TestimonialCard";
 import { testimonials } from "@/lib/data";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 
 const Testimonials = () => {
   return (
@@ -13,25 +8,13 @@ const Testimonials = () => {
         OUR HAPPY CUSTOMERS
       </h2>
 
-      <div className="hidden md:flex gap-5 justify-evenly flex-wrap">
+      <div className="flex gap-5 justify-evenly overflow-x-auto scroll-smooth scrollbar-hide">
         {testimonials.map((testimonial) => {
           return (
             <TestimonialCard key={testimonial.name} testimonial={testimonial} />
           );
         })}
       </div>
-
-      <Carousel className="md:hidden">
-        <CarouselContent>
-          {testimonials.map((item, index) => {
-            return (
-              <CarouselItem key={index}>
-                <TestimonialCard testimonial={item} />
-              </CarouselItem>
-            );
-          })}
-        </CarouselContent>
-      </Carousel>
     </div>
   );
 };

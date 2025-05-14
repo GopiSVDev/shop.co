@@ -14,6 +14,16 @@ const ProductCard = ({ product }: { product: Product }) => {
     router.push(`/shop/${id}-${title}`);
   };
 
+  const originalPrice = price;
+
+  const displayDiscount = discountPercentage
+    ? Math.round(discountPercentage)
+    : 0;
+
+  const discountedPrice = discountPercentage
+    ? originalPrice - (originalPrice * displayDiscount) / 100
+    : originalPrice;
+
   return (
     <motion.div
       whileTap={{ scale: 0.98 }}
@@ -39,19 +49,17 @@ const ProductCard = ({ product }: { product: Product }) => {
 
         {/* Pricing */}
         <div className="flex gap-3 items-center">
-          <span className="text-[20px] font-bold">{`$${
-            discountPercentage
-              ? (price - (price * discountPercentage) / 100).toFixed(2)
-              : price
-          }`}</span>
+          <span className="text-[20px] font-bold">{`$${discountedPrice.toFixed(
+            2
+          )}`}</span>
 
           {discountPercentage ? (
             <>
               <span className="text-[20px] font-bold text-[hsla(0,0%,0%,0.4)] line-through">
-                {price}
+                {originalPrice.toFixed(2)}
               </span>
               <span className="text-[10px] text-[hsla(0,100%,60%,1)] p-[6px] bg-[hsla(0,100%,60%,0.1)] rounded-[62px] font-medium">
-                {`-${discountPercentage}%`}
+                {`-${displayDiscount}%`}
               </span>
             </>
           ) : (

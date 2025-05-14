@@ -31,7 +31,7 @@ const NewArrivals = () => {
 
         <CardGrid products={randomProducts} />
         <Link href="/shop">
-          <Button className="my-8 w-full max-w-[220px] transform transition-transform duration-200 hover:scale-[1.1] active:scale-90">
+          <Button className="my-8 w-full max-w-[220px] transition-transform duration-200 hover:scale-[1.1] active:scale-90">
             View All
           </Button>
         </Link>

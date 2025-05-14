@@ -28,6 +28,15 @@ const ProductInfo = ({ product }: { product: Product }) => {
     addToCart(cartItem);
   };
 
+  const originalPrice = product.price;
+  const displayDiscount = product.discountPercentage
+    ? Math.round(product.discountPercentage)
+    : 0;
+
+  const discountedPrice = product.discountPercentage
+    ? originalPrice - (originalPrice * displayDiscount) / 100
+    : originalPrice;
+
   return (
     <div className="flex flex-col space-y-4">
       <h2 className="font-integralCf text-[clamp(1.5rem,1.2142857142857144rem+1.4285714285714286vw,2.5rem)] font-bold ">
@@ -39,22 +48,17 @@ const ProductInfo = ({ product }: { product: Product }) => {
 
       {/* Price Section */}
       <div className="flex gap-2 items-center font-satoshi text-[32px]">
-        <span className="text-[20px] font-bold">{`$${
-          product?.discountPercentage
-            ? (
-                product.price -
-                (product.price * product.discountPercentage) / 100
-              ).toFixed(2)
-            : product?.price
-        }`}</span>
+        <span className="text-[20px] font-bold">{`$${discountedPrice.toFixed(
+          2
+        )}`}</span>
 
         {product?.discountPercentage ? (
           <>
             <span className="text-[20px] font-bold text-[hsla(0,0%,0%,0.4)] line-through">
-              {product.price}
+              {originalPrice.toFixed(2)}
             </span>
             <span className="text-[10px] text-[hsla(0,100%,60%,1)] p-[6px] bg-[hsla(0,100%,60%,0.1)] rounded-[62px] font-medium">
-              {`-${product.discountPercentage}%`}
+              {`-${displayDiscount}%`}
             </span>
           </>
         ) : (
