@@ -10,7 +10,9 @@ import { motion } from "motion/react";
 
 const Navbar = () => {
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
-
+  const [scrollingUp, setScrollingUp] = useState(false);
+  const [prevScrollY, setPrevScrollY] = useState(0);
+  const [scrollingDown, setScrollingDown] = useState(false);
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 1024 && isMobileSearchOpen) {
@@ -18,19 +20,39 @@ const Navbar = () => {
       }
     };
 
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > prevScrollY) {
+        setScrollingDown(true);
+        setScrollingUp(false);
+      } else if (currentScrollY < prevScrollY - 10) {
+        setScrollingUp(true);
+        setScrollingDown(false);
+      }
+      setPrevScrollY(currentScrollY);
+    };
+
     window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScroll);
 
     handleResize();
 
-    return () => window.removeEventListener("resize", handleResize);
-  });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isMobileSearchOpen, prevScrollY]);
 
   return (
     <motion.header
       initial={{ y: 10, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      animate={{
+        y: scrollingDown ? "-100%" : 0,
+        opacity: scrollingDown ? 0 : 1,
+      }}
       transition={{ duration: 0.4 }}
-      className="w-full bg-white sticky top-0 shadow-md"
+      className="sticky top-0 w-full bg-white shadow-md"
     >
       <div className="container flex justify-between items-center px-4 py-5 md:px-10 lg:px-16 lg:gap-10">
         {/* Left Section */}

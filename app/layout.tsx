@@ -28,15 +28,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <FetchProducts />
       <body
         className={`${satoshi.variable} ${integralCf.variable} min-h-screen overflow-x-hidden`}
       >
+        <FetchProducts />
         <NotificationBar />
         <Navbar />
-
         <main>{children}</main>
-
         <Footer />
       </body>
     </html>

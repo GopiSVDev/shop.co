@@ -117,9 +117,7 @@ const MainContent = () => {
         <p className="text-sm text-gray-500 font-satoshi">
           Shop.co © 2000-2025, All Rights Reserved
         </p>
-        <div className="flex justify-between items-center h-fit">
-          {/* Replace these placeholders with your actual payment icons */}
-
+        <div className="flex flex-wrap justify-between items-center h-fit">
           <Image
             src="/svg/visa.png"
             alt="Visa"
