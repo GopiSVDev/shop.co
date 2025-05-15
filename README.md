@@ -21,11 +21,11 @@
 
 ### Desktop Performance
 
-![Desktop Lighthouse Report](/screenshots/desktop.png)
+![Desktop Lighthouse Report](public/screenshots/desktop.png)
 
 ### Mobile Performance
 
-![Mobile Lighthouse Report](/screenshots/mobile.png)
+![Mobile Lighthouse Report](public/screenshots/mobile.png)
 
 ---
 
