@@ -31,11 +31,11 @@
 
 ## 🧱 Tech Stack
 
-- [Next.js 14 (App Router)](https://nextjs.org/docs)
+- [Next.js 15 (App Router)](https://nextjs.org/docs)
 - [React](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [Framer Motion](https://www.framer.com/motion/)
+- [Motion](https://motion.dev/)
 
 ---
 
@@ -47,8 +47,8 @@ shop.co/
 ├── components/ # Reusable UI components
 ├── public/ # Static assets (images, SVGs)
 ├── styles/ # Tailwind config and globals
-├── lib/ # Utility functions (optional)
-├── store/ # State management (Context or mock)
+├── lib/ # Utility functions (api and utils)
+├── store/ # State management (Zustand State Management)
 ├── next.config.ts # Next.js configuration
 ├── tailwind.config.ts # Tailwind CSS setup
 ├── tsconfig.json # TypeScript config
