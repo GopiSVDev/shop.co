@@ -5,6 +5,7 @@ import NotificationBar from "@/components/layout/sections/home/NotificationBar";
 import Navbar from "@/components/layout/Navbar/Navbar";
 import Footer from "@/components/layout/Footer/Footer";
 import FetchProducts from "@/components/FetchProducts";
+import { Suspense } from "react";
 
 const satoshi = localFont({
   src: "../public/fonts/Satoshi-Variable.ttf",
@@ -33,7 +34,9 @@ export default function RootLayout({
       >
         <FetchProducts />
         <NotificationBar />
-        <Navbar />
+        <Suspense>
+          <Navbar />
+        </Suspense>
         <main>{children}</main>
         <Footer />
       </body>

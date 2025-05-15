@@ -8,9 +8,9 @@ import {
 
 const ProductGallery = ({ images }: { images: string[] }) => {
   return (
-    <div className="mx-5 bg-offWhite rounded-[20px] w-full max-w-[450px] lg:max-w-[550px] relative">
+    <div className="relative mx-5 bg-offWhite rounded-[20px] w-full max-w-[450px] lg:max-w-[550px]">
       {images.length > 0 && (
-        <Carousel className="w-full z-10" opts={{ loop: false }}>
+        <Carousel className="w-full" opts={{ loop: false }}>
           <CarouselContent>
             {images.map((img, index) => (
               <CarouselItem key={index} className="flex justify-center">

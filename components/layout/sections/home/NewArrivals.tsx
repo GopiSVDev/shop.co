@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-// import MobileCarousel from "../../../ui/MobileCarousel";
 import CardGrid from "../../../ui/CardGrid";
 import { useProductStore } from "@/store/useProductStore";
 import Link from "next/link";

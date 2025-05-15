@@ -24,7 +24,7 @@ const Navbar = () => {
 
       if (currentScrollY > prevScrollY) {
         setScrollingDown(true);
-      } else if (currentScrollY < prevScrollY - 10) {
+      } else if (currentScrollY < prevScrollY) {  
         setScrollingDown(false);
       }
       setPrevScrollY(currentScrollY);

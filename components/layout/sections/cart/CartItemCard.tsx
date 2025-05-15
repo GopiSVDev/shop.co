@@ -14,7 +14,7 @@ const CartItemCard = ({ cartItem }: { cartItem: CartItem }) => {
   return (
     <>
       <div className="flex gap-3">
-        <div className="min-w-[100px] bg-offWhite rounded-[10px] overflow-hidden">
+        <div className="min-w-[100px] bg-offWhite rounded-[10px] overflow-hidden max-h-[130px]">
           <Image
             className="md:w-[150px]"
             src={thumbnail}
